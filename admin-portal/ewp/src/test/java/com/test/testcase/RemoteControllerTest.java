@@ -94,7 +94,7 @@ public class RemoteControllerTest extends AbstractTestNGSpringContextTests {
     @Test(description = "approval")
     public void testApproval() throws IOException {
         RestfulResponse<RequestApprovalDto> restfulResponse=new RestfulResponse<>();
-        RequestApproval requestApproval = requestApprovalService.approvalStatus(Long.valueOf(83),"4028816958dd6d840158e1a181f90099");
+        RequestApproval requestApproval = requestApprovalService.approvalStatus(Long.valueOf(1),"4028816958dd6d840158e1a181f90099");
         RequestApprovalDto dto = new RequestApprovalDto();
         BeanUtils.copyProperties(requestApproval, dto);
         dto.setParticipantId(requestApproval.getEwalletParticipant().getId().toString());
@@ -111,7 +111,7 @@ public class RemoteControllerTest extends AbstractTestNGSpringContextTests {
     @Test(description = "reject")
     public void testReject() throws IOException {
         RestfulResponse<RequestApprovalDto> restfulResponse=new RestfulResponse<>();
-        RequestApproval requestApproval = requestApprovalService.rejectApproval(Long.valueOf(84), ParticipantStatus.REJECTED,"4028816958dd6d840158e1a181f90099");
+        RequestApproval requestApproval = requestApprovalService.rejectApproval(Long.valueOf(1), ParticipantStatus.REJECTED,"4028816958dd6d840158e1a181f90099");
         RequestApprovalDto dto = new RequestApprovalDto();
         BeanUtils.copyProperties(requestApproval, dto);
         dto.setParticipantId(requestApproval.getEwalletParticipant().getId().toString());
@@ -127,7 +127,7 @@ public class RemoteControllerTest extends AbstractTestNGSpringContextTests {
     @Test(dataProvider="participantData")
     public void testHasPending(Map<String, String> data) throws IOException {
         RestfulResponse<Boolean> restfulResponse = new RestfulResponse<>();
-        Boolean hasPendingStatus = ewalletParticipantService.hasPending("HKGA001", Instance.valueOf(data.get("instance")), Long.valueOf(84));
+        Boolean hasPendingStatus = ewalletParticipantService.hasPending("HKGA001", Instance.valueOf(data.get("instance")), Long.valueOf(1));
         restfulResponse.setData(hasPendingStatus);
         Assert.assertNotNull(restfulResponse, "response");
     }
@@ -135,14 +135,14 @@ public class RemoteControllerTest extends AbstractTestNGSpringContextTests {
     @Test(description = "get-approval-info")
     public void testGetRequestApprovalInfo() throws IOException {
         RestfulResponse<String> restfulResponse = new RestfulResponse<>();
-        restfulResponse.setData(requestApprovalService.getRequestApprovalInfo("84"));
+        restfulResponse.setData(requestApprovalService.getRequestApprovalInfo("1"));
         Assert.assertNotNull(restfulResponse, "response");
     }
 
     @Test(description = "get-request-approval")
     public void testGetApproval() throws IOException {
         RestfulResponse<RequestApprovalDto> restfulResponse=new RestfulResponse<>();
-        RequestApproval requestApproval = requestApprovalService.getApproval(Long.valueOf(84));
+        RequestApproval requestApproval = requestApprovalService.getApproval(Long.valueOf(1));
         RequestApprovalDto dto = new RequestApprovalDto();
         dto.setParticipantId(requestApproval.getEwalletParticipant().getId().toString());
         dto.setGeaParticipantRefId(requestApproval.getEwalletParticipant().getGeaRefId());
@@ -157,7 +157,7 @@ public class RemoteControllerTest extends AbstractTestNGSpringContextTests {
 
     @Test(dataProvider="participantData")
     public void testIsNeedDeploy(Map<String, String> data) throws IOException {
-        Boolean restfulResponse=ewalletParticipantService.isNeedDeploy("HKGA001", Instance.valueOf(data.get("instance")), Long.valueOf(84), Long.valueOf(84));
+        Boolean restfulResponse=ewalletParticipantService.isNeedDeploy("HKGA001", Instance.valueOf(data.get("instance")), Long.valueOf(1), Long.valueOf(1));
         Assert.assertNotNull(restfulResponse, "response");
     }
 

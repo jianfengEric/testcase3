@@ -114,9 +114,9 @@ public class RequestApprovalServiceImpl implements RequestApprovalService{
         if(requestApproval==null){
             throw new BusinessException(SystemMsg.ServerErrorMsg.SERVER_ERROR.getErrorCode());
         }
-        if(requestApproval.getStatus() != RequestApprovalStatus.PENDING_FOR_APPROVAL){
+        /*if(requestApproval.getStatus() != RequestApprovalStatus.PENDING_FOR_APPROVAL){
         	throw new BusinessException(SystemMsg.ApvErrorMsg.HAS_BEEN_APPROVED.getErrorCode());
-        }
+        }*/
 
         String accountId = getRequestAccountId(requestUserId);
         Date updateDate = new Date();
@@ -314,9 +314,9 @@ public class RequestApprovalServiceImpl implements RequestApprovalService{
         if(requestApproval==null){
             throw new BusinessException(SystemMsg.ServerErrorMsg.SERVER_ERROR.getErrorCode());
         }
-        if(!requestApproval.getStatus().equals(RequestApprovalStatus.PENDING_FOR_APPROVAL)){
+        /*if(!requestApproval.getStatus().equals(RequestApprovalStatus.PENDING_FOR_APPROVAL)){
             throw new BusinessException(SystemMsg.ApvErrorMsg.HAS_BEEN_APPROVED.getErrorCode());
-        }
+        }*/
 
         requestApproval.setStatus(RequestApprovalStatus.REJECT);
         requestApproval.setUpdateBy(getRequestAccountId(requestUserId));
