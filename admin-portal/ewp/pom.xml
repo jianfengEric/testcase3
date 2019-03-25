@@ -298,7 +298,7 @@
          <!--<filters>-->
             <!--<filter>src/main/resources/filters/filter-${env}.properties</filter>-->
         <!--</filters>-->
-         <resources>
+         <!--<resources>
             <resource>
                 <directory>src/main/resources/</directory>
                 <filtering>false</filtering>
@@ -321,7 +321,7 @@
                     <exclude>application.properties</exclude>
                 </excludes>
             </resource>
-        </resources>
+        </resources>-->
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>
