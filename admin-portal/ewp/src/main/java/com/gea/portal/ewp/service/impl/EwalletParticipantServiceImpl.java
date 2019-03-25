@@ -1466,9 +1466,9 @@ public class EwalletParticipantServiceImpl implements EwalletParticipantService 
         if(statusChangeDto.getToStatus().equals("ACTIVE")){
         	Map<ApprovalType, Boolean> comMap = this.isCompleteData(ewalletParticipant.getId(), instance, null);
         	String str = comMap.entrySet().stream().filter(item->!item.getValue()).map(item->item.getKey().getValue()).collect(Collectors.joining(","));
-        	if(StringUtils.isNotBlank(str)){
+        	/*if(StringUtils.isNotBlank(str)){
         		throw new BusinessException(SystemMsg.EwpErrorMsg.INCOMPLETE_DATA.getErrorCode(),new String[]{str});
-        	}
+        	}*/
         }
 
         String accountId = userService.getLoginAccountId();
