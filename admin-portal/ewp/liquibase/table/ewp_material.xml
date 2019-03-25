@@ -1,0 +1,64 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535527835462-25">
+        <createTable tableName="ewp_material">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="" name="material_type" type="VARCHAR(45)"/>
+            <column name="material_filename" type="VARCHAR(2000)"/>
+            <column name="material_desc" type="VARCHAR(150)"/>
+            <column name="file_path" type="VARCHAR(150)"/>
+            <column name="ewp_form_id" type="BIGINT"/>
+            <column name="ewp_owener_id" type="BIGINT"/>
+            <column name="ewp_key_persion_id" type="BIGINT"/>
+            <column name="ewp_dispute_contact_id" type="BIGINT"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-45">
+        <createIndex indexName="fk_dispute_contact_id_idx" tableName="ewp_material">
+            <column name="ewp_dispute_contact_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-46">
+        <createIndex indexName="fk_ewp_ower_id_idx" tableName="ewp_material">
+            <column name="ewp_owener_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-50">
+        <createIndex indexName="fk_key_person_id_idx" tableName="ewp_material">
+            <column name="ewp_key_persion_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-78">
+        <addForeignKeyConstraint baseColumnNames="ewp_dispute_contact_id" baseTableName="ewp_material"
+                                 constraintName="fk_dispute_contact_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_dispute_contact"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-84">
+        <addForeignKeyConstraint baseColumnNames="ewp_owener_id" baseTableName="ewp_material"
+                                 constraintName="fk_ewp_ower_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_owner"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535527835462-95">
+        <addForeignKeyConstraint baseColumnNames="ewp_key_persion_id" baseTableName="ewp_material"
+                                 constraintName="fk_key_person_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_key_person"/>
+    </changeSet>
+
+
+</databaseChangeLog>

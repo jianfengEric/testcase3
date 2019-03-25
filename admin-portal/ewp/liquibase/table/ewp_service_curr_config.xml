@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-17">
+        <createTable tableName="EWP_SERVICE_CURR_CONFIG">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ewp_service_config_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="currency" type="VARCHAR(10)"/>
+            <column name="admin_fee" type="DECIMAL(20, 2)"/>
+            <column name="change_name_admin_fee" type="DECIMAL(20, 2)"/>
+            <column name="cancel_admin_fee" type="DECIMAL(20, 2)"/>
+            <column defaultValueBoolean="false" name="enable" type="BIT(1)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="update_date" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-32">
+        <createIndex indexName="fk_participant_service_config_id_idx" tableName="ewp_service_curr_config">
+            <column name="ewp_service_config_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-70">
+        <addForeignKeyConstraint baseColumnNames="ewp_service_config_id" baseTableName="ewp_service_curr_config"
+                                 constraintName="fk_participant_service_config_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewp_service_config"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-7">
+        <createTable tableName="EWP_DISPUTE_CONTACT">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ewp_form_id" type="BIGINT"/>
+            <column name="role_name" type="VARCHAR(100)"/>
+            <column name="department_name" type="VARCHAR(100)"/>
+            <column name="contact_name" type="VARCHAR(100)"/>
+            <column name="contact_name_nls" type="VARCHAR(100)"/>
+            <column name="contact_person_type" type="VARCHAR(50)"/>
+            <column name="phone_office" type="VARCHAR(50)"/>
+            <column name="phone_mobile" type="VARCHAR(50)"/>
+            <column name="mobile_sms" type="INT"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="email" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-37">
+        <createIndex indexName="idx_ewp_dispute_contact_participant_id" tableName="ewp_dispute_contact">
+            <column name="ewp_form_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-50">
+        <addForeignKeyConstraint baseColumnNames="ewp_form_id" baseTableName="ewp_dispute_contact"
+                                 constraintName="fk_ewp_dispute_contact_ewp_form_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewp_company_form"/>
+    </changeSet>
+
+</databaseChangeLog>

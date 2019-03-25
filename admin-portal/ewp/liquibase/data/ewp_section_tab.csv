@@ -1,0 +1,6 @@
+"id","code","name","status","create_date"
+"1","FULL_COMPANY_INFORMATION","Full Company Information","ACTIVE","2018-08-27 17:23:15"
+"2","SERVICE_SETTING","Service Setting","ACTIVE","2018-08-27 17:23:15"
+"3","SERVICE_ASSIGNMENT","Service Assignment","ACTIVE","2018-08-27 17:23:15"
+"4","API_GATEWAY_SETTING","API Gateway Setting","ACTIVE","2018-08-27 17:23:15"
+"5","SETTLEMENT_CUT_OFF_TIME_SETTING","Settlement Cut-Off Time Setting","ACTIVE","2018-08-27 17:23:15"

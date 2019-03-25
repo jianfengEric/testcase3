@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-10">
+        <createTable tableName="EWP_SERVICE_MONEY_POOL">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ewp_service_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_moneypool_ref_id" type="VARCHAR(45)"/>
+            <column name="status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="participant_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-39">
+        <createIndex indexName="idx_ewp_money_pool_participant_service_id" tableName="ewp_service_money_pool">
+            <column name="ewp_service_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-53">
+        <addForeignKeyConstraint baseColumnNames="ewp_service_id" baseTableName="ewp_service_money_pool"
+                                 constraintName="fk_ewp_money_pool_participant_service_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewp_service"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-78">
+        <createIndex indexName="idx_ewp_service_money_pool_participant_id" tableName="ewp_service_money_pool">
+            <column name="participant_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

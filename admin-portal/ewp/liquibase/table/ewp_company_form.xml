@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-5">
+        <createTable tableName="EWP_COMPANY_FORM">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="participant_id" type="BIGINT"/>
+            <column name="participant_name_en" type="VARCHAR(100)"/>
+            <column name="participant_name_nls" type="VARCHAR(100)"/>
+            <column name="full_company_name" type="VARCHAR(100)"/>
+            <column name="country" type="VARCHAR(3)"/>
+            <column name="company_address" type="VARCHAR(150)"/>
+            <column name="bd_registration_no" type="VARCHAR(100)"/>
+            <column name="bd_registration_expiry_date" type="datetime"/>
+            <column name="notification_email" type="VARCHAR(2000)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-31">
+        <createIndex indexName="fk_participant_id_idx" tableName="ewp_company_form">
+            <column name="participant_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-49">
+        <addForeignKeyConstraint baseColumnNames="participant_id" baseTableName="ewp_company_form"
+                                 constraintName="fk_ewp_company_form_participant_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewallet_participant"/>
+    </changeSet>
+</databaseChangeLog>

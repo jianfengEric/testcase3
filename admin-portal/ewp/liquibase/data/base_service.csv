@@ -1,0 +1,11 @@
+"id","service_code","status","name_en","name_zh_hk","name_zh_cn","description","create_date","update_date"
+"1","GR_BANK_TRANSFER","ACTIVE","Transfer-Out Bank Transfer (T + 1)",NULL,NULL,NULL,NULL,NULL
+"2","","INACTIVE","Transfer-Out Bank Transfer (Real-Time)",NULL,NULL,NULL,NULL,NULL
+"3","GLOBAL_SIM_TOPUP","ACTIVE","Global SIM Top-up",NULL,NULL,NULL,NULL,NULL
+"4","GR_CASH_PICKUP","ACTIVE","Transfer-Out Cash Withdrawal (T + 1)",NULL,NULL,NULL,NULL,NULL
+"5","","INACTIVE","Transfer-Out Cash Withdrawal (Real-Time)",NULL,NULL,NULL,NULL,NULL
+"6","GLOBAL_BILL_PAYMENT","ACTIVE","Global Bill Payment",NULL,NULL,NULL,NULL,NULL
+"7","","INACTIVE","Global Fund Dispatch",NULL,NULL,NULL,NULL,NULL
+"8","","INACTIVE","Online Global Merchant Payment",NULL,NULL,NULL,NULL,NULL
+"9","","INACTIVE","Online Global Merchant Payment",NULL,NULL,NULL,NULL,NULL
+"10","","INACTIVE","Transfer-In eWallet",NULL,NULL,NULL,NULL,NULL

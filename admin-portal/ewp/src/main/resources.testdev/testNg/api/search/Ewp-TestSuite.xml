@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="search_tags-测试集合" verbose="1" preserve-order="true">
+    <parameter name="report.config" value="src/main/resources.testdev/config/report/extent-config.xml"/>
+    <parameter name="system.info" value="com.tng.portal.common.reporter.config.MySystemInfo"/>
+
+    <test name="测试分类接口" preserve-order="true">
+        <classes>
+            <class name="com.test.testcase.ParticipantControllerTest"/>
+            <class name="com.test.testcase.CountryControllerTest"/>
+            <class name="com.test.testcase.DictionaryControllerTest"/>
+            <class name="com.test.testcase.RemoteControllerTest"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="com.tng.portal.common.reporter.Listener.MyExtentTestNgFormatter"/>
+    </listeners>
+</suite>

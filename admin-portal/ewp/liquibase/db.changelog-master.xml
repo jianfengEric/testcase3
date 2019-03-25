@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <include file="../common/liquibase/db.changelog-common.xml" />
+    <include file="../ana-client/liquibase/db.changelog-common.xml" />
+
+    <include file="liquibase/table/base_rate.xml" />
+    <include file="liquibase/table/country.xml" />
+    <!--<include file="liquibase/table/base_service.xml" />-->
+    <include file="liquibase/table/ewallet_participant.xml" />
+    <include file="liquibase/table/ewp_company_form.xml" />
+    <include file="liquibase/table/ewp_gateway_config.xml" />
+    <include file="liquibase/table/ewp_service.xml" />
+    <include file="liquibase/table/ewp_service_money_pool.xml" />
+    <include file="liquibase/table/ewp_status_change.xml" />
+    <include file="liquibase/table/request_approval.xml" />
+    <include file="liquibase/table/ewp_deployment.xml" />
+    <include file="liquibase/table/ewp_dispute_contact.xml" />
+    <include file="liquibase/table/ewp_key_person.xml" />
+    <include file="liquibase/table/ewp_owner.xml" />
+    <include file="liquibase/table/ewp_record_env_map.xml" />
+    <include file="liquibase/table/ewp_section_tab.xml" />
+    <include file="liquibase/table/ewp_section_tab_field.xml" />
+    <include file="liquibase/table/ewp_service_config.xml" />
+    <include file="liquibase/table/ewp_service_curr_config.xml" />
+    <include file="liquibase/table/money_pool.xml" />
+    <include file="liquibase/table/role_section_tab.xml" />
+    <include file="liquibase/table/role_section_tab_field.xml" />
+    <include file="liquibase/table/ewp_material.xml" />
+    <include file="liquibase/table/ewp_service_settlement.xml" />
+    <include file="liquibase/table/ewp_sys_config.xml" />
+
+
+
+    <include file="liquibase/db.load-data.xml" />
+
+</databaseChangeLog>

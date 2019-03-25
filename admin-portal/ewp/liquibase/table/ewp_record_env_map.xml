@@ -1,0 +1,70 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-12">
+        <createTable tableName="EWP_RECORD_ENV_MAP">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="participant_id" type="BIGINT"/>
+            <column name="preprod_req_apv_id" type="BIGINT"/>
+            <column name="prod_req_apv_id" type="BIGINT"/>
+            <column name="deploy_to_prod_id" type="BIGINT"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-41">
+        <createIndex indexName="idx_ewp_record_env_map_participant_id" tableName="ewp_record_env_map">
+            <column name="participant_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-42">
+        <createIndex indexName="idx_ewp_record_env_map_pre_prod_req_apv_id" tableName="ewp_record_env_map">
+            <column name="preprod_req_apv_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-43">
+        <createIndex indexName="idx_ewp_record_env_map_prod_req_apv_id" tableName="ewp_record_env_map">
+            <column name="prod_req_apv_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-44">
+        <createIndex indexName="idx_ewp_record_env_prod_req_apv_id" tableName="ewp_record_env_map">
+            <column name="deploy_to_prod_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-55">
+        <addForeignKeyConstraint baseColumnNames="deploy_to_prod_id" baseTableName="ewp_record_env_map"
+                                 constraintName="fk_ewp_record_env_map_deploy_to_prod_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewp_deployment"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-56">
+        <addForeignKeyConstraint baseColumnNames="participant_id" baseTableName="ewp_record_env_map"
+                                 constraintName="fk_ewp_record_env_map_participant_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewallet_participant"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-57">
+        <addForeignKeyConstraint baseColumnNames="preprod_req_apv_id" baseTableName="ewp_record_env_map"
+                                 constraintName="fk_ewp_record_env_map_pre_prod_req_apv_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="request_approval"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-58">
+        <addForeignKeyConstraint baseColumnNames="prod_req_apv_id" baseTableName="ewp_record_env_map"
+                                 constraintName="fk_ewp_record_env_map_prod_req_apv_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="request_approval"/>
+    </changeSet>
+
+</databaseChangeLog>

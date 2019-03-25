@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-11">
+        <createTable tableName="EWP_OWNER">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ewp_form_id" type="BIGINT"/>
+            <column name="role_name" type="VARCHAR(100)"/>
+            <column name="name_en" type="VARCHAR(100)"/>
+            <column name="name_nls" type="VARCHAR(100)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column defaultValue="" name="phone_office" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="phone_mobile" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-40">
+        <createIndex indexName="idx_ewp_owner_participant_id" tableName="ewp_owner">
+            <column name="ewp_form_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-54">
+        <addForeignKeyConstraint baseColumnNames="ewp_form_id" baseTableName="ewp_owner"
+                                 constraintName="fk_ewp_owner_ewp_form_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_company_form"/>
+    </changeSet>
+
+</databaseChangeLog>

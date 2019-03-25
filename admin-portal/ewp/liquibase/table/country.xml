@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Administrator (generated)" id="1540525573735-18">
+       <createTable tableName="country">
+           <column autoIncrement="true" name="ID" type="BIGINT">
+               <constraints primaryKey="true"/>
+           </column>
+           <column name="NAME_EN" type="VARCHAR(255)"/>
+           <column name="NAME_ZH_HK" type="VARCHAR(255)"/>
+           <column name="NAME_ZH_CN" type="VARCHAR(255)"/>
+           <column name="COUNTRY_CODE_ALPHA_2" type="VARCHAR(255)"/>
+           <column name="COUNTRY_CODE_ALPHA_3" type="VARCHAR(255)"/>
+           <column name="DIALING_CODE" type="VARCHAR(255)"/>
+           <column name="CURRENCY_CODE" type="VARCHAR(255)"/>
+           <column name="NATIONALITY" type="VARCHAR(255)"/>
+           <column name="NATIONALITY_CODE" type="VARCHAR(255)"/>
+           <column name="CURRENCY_DP" type="INT"/>
+       </createTable>
+   </changeSet>
+
+</databaseChangeLog>

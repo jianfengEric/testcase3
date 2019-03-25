@@ -1,0 +1,90 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-20">
+        <createTable tableName="REQUEST_APPROVAL">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="participant_id" remarks="participant id" type="BIGINT"/>
+            <column name="approval_type" type="VARCHAR(50)"/>
+            <column name="ewp_company_form_id" remarks="uuid" type="VARCHAR(1000)"/>
+            <column name="ewp_service_id" type="VARCHAR(1000)"/>
+            <column name="ewp_service_settlement_id" type="VARCHAR(1000)"/>
+            <column name="ewp_money_pool_id" type="VARCHAR(1000)"/>
+            <column name="ewp_gateway_config_id" type="VARCHAR(1000)"/>
+            <column name="ewp_status_change_id" type="VARCHAR(1000)"/>
+            <column name="status" remarks="PENDING_FOR_APPROVAL, APPROVED, REJECT" type="VARCHAR(45)"/>
+            <column name="status_reason" type="VARCHAR(200)"/>
+            <column defaultValueBoolean="false" name="is_need_deploy" remarks="true -- have not been deployed to prod before and modify in PRE_PROD env, false -- had been deployed to prod" type="BIT(1)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="request_remark" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <!--<changeSet author="Sino (generated)" id="1535016193661-26">-->
+        <!--<createIndex indexName="fk_p_company_form_id_idx" tableName="request_approval">-->
+            <!--<column name="ewp_company_form_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-27">-->
+        <!--<createIndex indexName="fk_p_gateway_config_id_idx" tableName="request_approval">-->
+            <!--<column name="ewp_gateway_config_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-28">-->
+        <!--<createIndex indexName="fk_p_money_pool_id_idx" tableName="request_approval">-->
+            <!--<column name="ewp_money_pool_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-29">-->
+        <!--<createIndex indexName="fk_p_service_id_idx" tableName="request_approval">-->
+            <!--<column name="ewp_service_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-30">-->
+        <!--<createIndex indexName="fk_p_status_change_id_idx" tableName="request_approval">-->
+            <!--<column name="ewp_status_change_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-64">-->
+        <!--<addForeignKeyConstraint baseColumnNames="ewp_company_form_id" baseTableName="request_approval"-->
+                                 <!--constraintName="fk_p_company_form_id" deferrable="false" initiallyDeferred="false"-->
+                                 <!--onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"-->
+                                 <!--referencedTableName="ewp_company_form"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-65">-->
+        <!--<addForeignKeyConstraint baseColumnNames="ewp_gateway_config_id" baseTableName="request_approval"-->
+                                 <!--constraintName="fk_p_gateway_config_id" deferrable="false" initiallyDeferred="false"-->
+                                 <!--onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"-->
+                                 <!--referencedTableName="ewp_gateway_config"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-66">-->
+        <!--<addForeignKeyConstraint baseColumnNames="ewp_money_pool_id" baseTableName="request_approval"-->
+                                 <!--constraintName="fk_p_money_pool_id" deferrable="false" initiallyDeferred="false"-->
+                                 <!--onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"-->
+                                 <!--referencedTableName="ewp_money_pool"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-67">-->
+        <!--<addForeignKeyConstraint baseColumnNames="ewp_service_id" baseTableName="request_approval"-->
+                                 <!--constraintName="fk_p_service_id" deferrable="false" initiallyDeferred="false"-->
+                                 <!--onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"-->
+                                 <!--referencedTableName="ewp_service"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Sino (generated)" id="1535016193661-68">-->
+        <!--<addForeignKeyConstraint baseColumnNames="ewp_status_change_id" baseTableName="request_approval"-->
+                                 <!--constraintName="fk_p_status_change_id" deferrable="false" initiallyDeferred="false"-->
+                                 <!--onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"-->
+                                 <!--referencedTableName="ewp_status_change"/>-->
+    <!--</changeSet>-->
+
+</databaseChangeLog>

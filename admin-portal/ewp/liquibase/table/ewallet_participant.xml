@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-4">
+        <createTable tableName="EWALLET_PARTICIPANT">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_ref_id" type="VARCHAR(45)"/>
+            <column name="pre_status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="prod_status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="ajaxgu" id="addUniqueConstraint-EWALLET_PARTICIPANT_001">
+        <addUniqueConstraint columnNames="gea_ref_id" constraintName="uq_participant_gea_ref_id" tableName="EWALLET_PARTICIPANT" />
+    </changeSet>
+    
+    <changeSet author="ajaxgu" id="addColumn_EWALLET_PARTICIPANT_gea_sys_pid">
+        <addColumn tableName="EWALLET_PARTICIPANT" >
+            <column name="gea_pre_pid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="EWALLET_PARTICIPANT" >
+            <column name="gea_prd_pid" type="BIGINT"/>
+        </addColumn>
+        <addUniqueConstraint columnNames="gea_pre_pid" constraintName="uq_participant_gea_pre_pid" tableName="EWALLET_PARTICIPANT" />
+        <addUniqueConstraint columnNames="gea_prd_pid" constraintName="uq_participant_gea_prd_pid" tableName="EWALLET_PARTICIPANT" />
+    </changeSet>
+
+</databaseChangeLog>

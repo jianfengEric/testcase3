@@ -1,0 +1,79 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-8">
+        <createTable tableName="EWP_GATEWAY_CONFIG">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="participant_id" type="BIGINT"/>
+            <column name="status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="security_basic_enable" type="tinyint(3)"/>
+            <column name="security_basic_path" type="VARCHAR(500)"/>
+            <column name="security_user_name" type="VARCHAR(500)"/>
+            <column name="security_user_pwd" type="VARCHAR(500)"/>
+            <column name="mgt_security_enable" type="tinyint(3)"/>
+            <column name="mgt_context_path" type="VARCHAR(500)"/>
+            <column name="mgt_health_refresh_enable" type="tinyint(3)"/>
+            <column name="endpoints_info_sensitive" type="tinyint(3)"/>
+            <column name="endpoints_health_sensitive" type="tinyint(3)"/>
+            <column name="endpoints_restart_enable" type="tinyint(3)"/>
+            <column name="server_port" type="VARCHAR(500)"/>
+            <column name="server_api_key" type="VARCHAR(500)"/>
+            <column name="server_secret_key" type="VARCHAR(500)"/>
+            <column name="api_gateway_url" type="VARCHAR(500)"/>
+            <column name="server_log_path" type="VARCHAR(500)"/>
+            <column name="server_log_encryption_key" type="VARCHAR(500)"/>
+            <column name="server_log_total_size" type="BIGINT"/>
+            <column name="size_unit" type="VARCHAR(500)"/>
+            <column name="server_log_max_history" type="BIGINT"/>
+            <column name="server_log_pattern" type="VARCHAR(500)"/>
+            <column name="server_health_threshold" type="VARCHAR(500)"/>
+            <column name="server_zip_key" type="VARCHAR(500)"/>
+            <column name="server_zip_compression_level" type="BIGINT"/>
+            <column name="server_routes_mth" type="VARCHAR(500)"/>
+            <column name="server_routes_sr" type="VARCHAR(500)"/>
+            <column name="server_routes_meta" type="VARCHAR(500)"/>
+            <column name="server_connection_timeout" type="BIGINT"/>
+            <column name="server_request_timeout" type="BIGINT"/>
+            <column name="server_retry_times" type="BIGINT"/>
+            <column name="server_healcheck_endpoint" type="VARCHAR(500)"/>
+            <column name="server_message_endpoint" type="VARCHAR(500)"/>
+            <column name="server_log_enable_encrypt" type="tinyint(3)"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-38">
+        <createIndex indexName="idx_ewp_gateway_config_participant_id" tableName="ewp_gateway_config">
+            <column name="participant_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-51">
+        <addForeignKeyConstraint baseColumnNames="participant_id" baseTableName="ewp_gateway_config"
+                                 constraintName="fk_ewp_gateway_config_participant_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="ewallet_participant"/>
+    </changeSet>
+    
+    <!-- <changeSet author="ajaxgu" id="addUniqueConstraint-uq_ewp_gateway_config_server_api_key"> 
+		<addUniqueConstraint columnNames="server_api_key" constraintName="uq_ewp_gateway_config_server_api_key" tableName="ewp_gateway_config" /> 
+	</changeSet>
+	
+	<changeSet author="ajaxgu" id="addUniqueConstraint-uq_ewp_gateway_config_server_secret_key"> 
+		<addUniqueConstraint columnNames="server_secret_key" constraintName="uq_ewp_gateway_config_server_secret_key" tableName="ewp_gateway_config" /> 
+	</changeSet> -->
+    
+    
+    
+
+</databaseChangeLog>

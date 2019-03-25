@@ -1,0 +1,77 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Administrator (generated)" id="1550458507005-32">
+        <createTable tableName="ewp_service">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="participant_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="service_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="mark_up" type="DECIMAL(20, 12)"/>
+            <column name="status" remarks="PENDING_FOR_PROCESS, ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="service_status" type="VARCHAR(45)"/>
+            <column name="chg_ver_no" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-45">
+        <createIndex indexName="idx_ewp_service_participant_id" tableName="ewp_service">
+            <column name="participant_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-46">
+        <createIndex indexName="idx_ewp_service_service_id" tableName="ewp_service">
+            <column name="service_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-69">
+        <addForeignKeyConstraint baseColumnNames="participant_id" baseTableName="ewp_service"
+                                 constraintName="fk_participant_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewallet_participant"/>
+    </changeSet>
+    <!--<changeSet author="Sino (generated)" id="1535016193661-74">
+        <addForeignKeyConstraint baseColumnNames="service_id" baseTableName="ewp_service" constraintName="fk_service_id"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="base_service"/>
+    </changeSet>-->
+
+    <changeSet author="Owen" id="ewp_service_service-add-service_status">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ewp_service" columnName="service_status"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ewp_service" >
+            <column name="service_status" type="VARCHAR(45)" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ewp_service_service-add-chg_ver_no">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ewp_service" columnName="chg_ver_no"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ewp_service" >
+            <column name="chg_ver_no" type="INT(10)" />
+        </addColumn>
+    </changeSet>
+
+
+</databaseChangeLog>

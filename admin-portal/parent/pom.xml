@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.9.RELEASE</version>
+	</parent>
+
+  	<groupId>com.tng</groupId>
+  	<artifactId>gea-portal</artifactId>
+  	<version>1.0.0</version>
+  	<packaging>pom</packaging>
+  
+  	<modules>
+  		<module>../common</module>
+		<module>../ana</module>
+		<module>../ana-client</module>
+		<module>../email</module>
+		<module>../log-client</module>
+    	<!-- <module>../sms</module>
+    	<module>../sms-server</module> -->
+		<module>../ewp</module>
+		<module>../apv</module>
+		<module>../mp</module>
+		<module>../dpy</module>
+		<module>../tre</module>
+		<module>../eny</module>
+		<module>../agent</module>
+		<module>../srv</module>
+		<module>../ord</module>
+	</modules>
+  	
+	<properties>
+		<!-- ***** encoding ***** -->
+	    <encoding.type>UTF-8</encoding.type>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    
+	    <!-- ***** jdk ***** -->
+	    <version.jdk>1.8</version.jdk>
+	    
+	    <!-- ***** spring ***** -->
+	    <version.spring>4.3.2.RELEASE</version.spring>
+	    <version.spring.security>4.1.2.RELEASE</version.spring.security>
+	    
+	    <!-- ***** hibernate ***** -->
+	    <version.hibernate>5.2.1.Final</version.hibernate>
+	  	<version.hibernate.validation>5.2.4.Final</version.hibernate.validation>    	
+	  	
+	  	<swagger.springmvc.version>0.6.5</swagger.springmvc.version>
+		<swagger.springfox.version>2.3.1</swagger.springfox.version>
+
+	</properties>
+
+
+	<dependencies>
+<!-- ************************ log4j **************************** -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.slf4j</groupId>-->
+			<!--<artifactId>slf4j-log4j12</artifactId>-->
+			<!--<version>1.7.5</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+    	
+    	<dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>jcl-over-slf4j</artifactId>
+        	<version>1.7.5</version>
+    	</dependency>
+		  
+<!-- ************************ database **************************** -->   		  
+	    <dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+        
+		<!-- Oracle RAC -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jdbc-core</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-oracle</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
+
+<!-- ************************ junit **************************** -->         
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${version.spring}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		
+    </dependencies>
+    
+    <build>
+    	<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<encoding>${encoding.type}</encoding>
+				</configuration>
+			</plugin>	
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
+				</configuration>
+			</plugin>	
+			 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit</artifactId>
+						<version>2.4.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.5.0.1254</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>Public</name>
+			<url>http://192.168.1.154:8081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>Public</name>
+			<url>http://192.168.1.154:8081/nexus/content/repositories/thirdparty/</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

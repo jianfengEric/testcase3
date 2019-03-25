@@ -1,0 +1,8 @@
+"id","curr_from","curr_to","offer_rate","expire_date","exch_rate_file_id","create_date","create_by","update_date","update_by"
+"1","HKD","PHP",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"2","HKD","USD",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"3","HKD","RMB",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"4","USD","HKD",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"5","USD","AUD",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"6","USD","BHD",NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"7","USD","PHP",NULL,NULL,NULL,NULL,NULL,NULL,NULL

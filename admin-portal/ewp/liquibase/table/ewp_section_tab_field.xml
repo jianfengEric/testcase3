@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-14">
+        <createTable tableName="EWP_SECTION_TAB_FIELD">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="section_tab_id" remarks="uuid" type="BIGINT"/>
+            <column name="field_label" type="VARCHAR(45)"/>
+            <column name="status" remarks="ACTIVE, INACTIVE" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-35">
+        <createIndex indexName="fk_section_tab_id_idx" tableName="ewp_section_tab_field">
+            <column name="section_tab_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1535016193661-73">
+        <addForeignKeyConstraint baseColumnNames="section_tab_id" baseTableName="ewp_section_tab_field"
+                                 constraintName="fk_section_tab_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_section_tab"/>
+    </changeSet>
+
+</databaseChangeLog>
