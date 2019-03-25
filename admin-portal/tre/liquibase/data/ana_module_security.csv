@@ -1,0 +1,6 @@
+"id","consumer","api_key","api_url_path"
+"1","APV","5bf5231a-e5a0-45b1-8ead-c91ad2c89017","/tre/remote/v1/approval,/tre/remote/v1/reject,/tre/remote/v1/get-detail,/tre/remote/v1/get-approval,/tre/remote/v1/save-deployment,/tre/remote/v1/get-request-approval"
+"2","DPY","5bf5231a-e5a0-45b1-8ead-c91ad2c89017","/tre/remote/v1/synch-deployment"
+"3","ANA","5bf5231a-e5a0-45b1-8ead-c91ad2c89017","/tre/remote/account/addSsoAccount,/tre/remote/v1/get-participant-list,/tre/remote/account/updateClientStatus,/tre/remote/account/delete-ana-token-by-user"
+"4","EWP","5bf5231a-e5a0-45b1-8ead-c91ad2c89017","/tre/remote/v1/get-list-data"
+"5","AGE","5bf5231a-e5a0-45b1-8ead-c91ad2c89017","/tre/remote/account/delete-ana-token"

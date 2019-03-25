@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1537433574075-3">
+        <createTable tableName="exchange_rate_record">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="curr_from" type="VARCHAR(45)"/>
+            <column name="curr_to" type="VARCHAR(45)"/>
+            <column name="offer_rate" type="DECIMAL(28,12)"/>
+            <column name="expire_date" type="datetime"/>
+            <column name="exch_rate_file_id" type="BIGINT"/>
+            <column name="current_envir" remarks="PRO_PROD,PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1537433574075-5">
+        <createIndex indexName="fk_exch_rate_file_id_idx" tableName="exchange_rate_record">
+            <column name="exch_rate_file_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1537433574075-9">
+        <addForeignKeyConstraint baseColumnNames="exch_rate_file_id" baseTableName="exchange_rate_record" constraintName="fk_exch_rate_file_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="exchange_rate_file"/>
+    </changeSet>
+
+</databaseChangeLog>

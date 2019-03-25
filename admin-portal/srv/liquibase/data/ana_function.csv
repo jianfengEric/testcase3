@@ -1,0 +1,6 @@
+"CODE","APPLICATION_CODE","DESCRIPTION","PERMISSION_SUM","OPTIMISTICLOCKVERSION","EXTERNAL"
+"PREPRODUCTION","SRV","preproduction","15","0","0"
+"PRODUCTION","SRV","production","15","0","0"
+"SERVICE_BASE_MARKUP","SRV","Service Base Markup","6","0","0"
+"USER_ACCOUNT","ANA","Account management","335","0","0"
+"USER_ROLE","ANA","ROLE management","15","0","0"

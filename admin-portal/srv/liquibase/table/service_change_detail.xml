@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1537433574075-2">
+        <createTable tableName="service_change_detail">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="batch_id" type="BIGINT"/>
+            <column name="service_id" type="BIGINT"/>
+            <column name="to_mark_up" type="VARCHAR(45)"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="create_date" type="DATETIME"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

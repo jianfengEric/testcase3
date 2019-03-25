@@ -1,0 +1,8 @@
+"CODE","APPLICATION_CODE","DESCRIPTION","PERMISSION_SUM","OPTIMISTICLOCKVERSION","EXTERNAL"
+"EXCHANGE_RATE_LISTING","TRE","Exchange Rate Listing","15","0","0"
+"NEW_EXCHANGE_RATE","TRE","New Exchange Rate (After upload CSV)","15","0","0"
+"PREPRODUCTION","TRE","preproduction","15","0","0"
+"PRODUCTION","TRE","production","15","0","0"
+"UPLOAD_EXCHANGE_RATE_CSV","TRE","Upload Exchange Rate CSV","15","0","0"
+"USER_ACCOUNT","ANA","Account management","335","0","1"
+"USER_ROLE","ANA","ROLE management","15","0","1"

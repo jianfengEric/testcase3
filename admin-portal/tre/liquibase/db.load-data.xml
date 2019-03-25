@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_ROLE" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_role.csv" tableName="ANA_ROLE" primaryKey="ID"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_ACCOUNT_ROLE_MAP" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_account_role_map.csv" tableName="ANA_ACCOUNT_ROLE_MAP" primaryKey="ACCOUNT_ID,ROLE_ID"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_FUNCTION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_function.csv" tableName="ANA_FUNCTION" primaryKey="CODE"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_PERMISSION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_permission.csv" tableName="ANA_PERMISSION" primaryKey="ID"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_ROLE_FUNCTION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_role_function.csv" tableName="ANA_ROLE_FUNCTION" primaryKey="ROLE_ID,FUNCTION_CODE"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_ROLE_FUNCTION_PERMISSION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_role_function_permission.csv" tableName="ANA_ROLE_FUNCTION_PERMISSION" primaryKey="ROLE_ID,FUNCTION_CODE"/>
+    </changeSet>
+    <changeSet author="Jimmy" id="LOAD_DATA_ANA_ROLE_PERMISSION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_role_permission.csv" tableName="ANA_ROLE_PERMISSION" primaryKey="ROLE_ID,PERMISSION_ID,FUNCTION_CODE"/>
+    </changeSet>
+    <!--<changeSet author="Jimmy" id="LOAD_DATA_EMAIL_JOB" runOnChange="true">-->
+    <!--<loadUpdateData file="liquibase/data/email_job.csv" tableName="EMAIL_JOB" primaryKey="ID"/>-->
+    <!--</changeSet>-->
+
+
+    <!--<changeSet author="Jimmy" id="LOAD_DATA_EWP_SECTION_TAB" runOnChange="true">-->
+    <!--<loadUpdateData file="liquibase/data/ewp_section_tab.csv" tableName="EWP_SECTION_TAB" primaryKey="ID"/>-->
+    <!--</changeSet>-->
+    <changeSet author="dong" id="LOAD_DATA_ANA_ACCOUNT_APPLICATION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_account_application.csv" tableName="ANA_ACCOUNT_APPLICATION" primaryKey="ID"/>
+    </changeSet>
+    <changeSet author="Dong" id="LOAD_DATA_EMAIL_JOB" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_account_role_map_qa.csv" tableName="ANA_ACCOUNT_ROLE_MAP" primaryKey="ACCOUNT_ID,ROLE_ID"/>
+    </changeSet>
+    <changeSet author="Dong" id="LOAD_DATA_ANA_ACCOUNT_APPLICATION" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_account_application_qa.csv" tableName="ANA_ACCOUNT_APPLICATION" primaryKey="ID"/>
+    </changeSet>
+    <changeSet author="dong" id="LOAD_DATA_ANA_MODULE_SECURITY" runOnChange="true">
+        <loadUpdateData file="liquibase/data/ana_module_security.csv" tableName="ANA_MODULE_SECURITY" primaryKey="ID"/>
+    </changeSet>
+</databaseChangeLog>
