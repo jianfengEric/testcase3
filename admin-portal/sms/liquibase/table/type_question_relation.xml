@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534413171852-33">
+        <createTable tableName="type_question_relation">
+            <column name="TYPE_ID" remarks="question type id" type="BIGINT(11)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="QUESTION_ID" remarks="question id" type="BIGINT(11)">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534413171852-87">
+        <addForeignKeyConstraint baseColumnNames="TYPE_ID" baseTableName="type_question_relation"
+                                 constraintName="TYPE_QUESTION_RELATION_FK1" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="question_type"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534413171852-88">
+        <addForeignKeyConstraint baseColumnNames="QUESTION_ID" baseTableName="type_question_relation"
+                                 constraintName="TYPE_QUESTION_RELATION_FK2" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="question_template"
+                                 validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

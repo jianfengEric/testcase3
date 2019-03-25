@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534474480122-33">
+        <createTable tableName="system_parameter">
+            <column name="PARAM_ID" type="VARCHAR(40)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PARAM_CAT" type="VARCHAR(50)"/>
+            <column name="PARAM_VALUE" type="VARCHAR(50)"/>
+            <column name="DESCRIPTION" type="VARCHAR(200)"/>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="DISPLAY_ORDER" type="TINYINT(2)"/>
+            <column name="CREATE_DATE" type="datetime"/>
+            <column name="CREATE_BY" type="VARCHAR(50)"/>
+            <column name="UPDATE_DATE" type="datetime"/>
+            <column name="UPDATE_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

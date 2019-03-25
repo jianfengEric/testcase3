@@ -1,0 +1,3 @@
+"ID","JOB","EMAIL_ACCOUNT_ID","SUBJECT","SENDER","RECEIVERS","EMAIL_TEMPLATE"
+"1","sendRegisteredAccountEmail","2","TNG Portal login account registration","licolin21@gmail.com","15220006220@163.com","<p>Dear Sir/Madam,</p><p><br/></p><p>System created login account for [${companyNameEn}]:</p><p> Account: [${account}] </p><p><br/></p><p><br/></p><p>This is the system generated email, don't reply to this email.</p>
+<a href=""${link}"" target=\""_blank\"">Click activation</a>"

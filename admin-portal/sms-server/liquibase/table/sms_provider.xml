@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534474480122-30">
+        <createTable tableName="sms_provider">
+            <column name="ID" type="VARCHAR(20)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PROVIDER_NAME" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ENDPOINT_URL" remarks="sms provider api url, include http:// or https://" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HTTP_METHOD" remarks="GET / POST" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(50)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="LONG_SMS" remarks="whether support long sms" type="TINYINT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SPECIAL_CHARACTER" remarks="whether support special character" type="TINYINT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_FOREIGN_COUNTRY" remarks="whether support send to foreign country" type="TINYINT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FAST_SMS" remarks="to indicate whether this api is fast sending. SMS portal does not require this fast api but may be used in future module." type="TINYINT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="ACT / NACT" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REMARK" type="TEXT"/>
+            <column name="CREATE_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_BY" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="datetime"/>
+            <column name="UPDATE_BY" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

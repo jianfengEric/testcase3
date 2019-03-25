@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="099bc6db-4260-4bb9-819d-ce1475b68522">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="jobCount" class="java.lang.String"/>
+	<field name="successCount" class="java.lang.String"/>
+	<field name="failCount" class="java.lang.String"/>
+	<field name="totalCount" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="19" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="9" width="100" height="20" uuid="956cabef-9116-4de3-9fb7-df6ea163a41d"/>
+				<text><![CDATA[Month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="9" width="100" height="20" uuid="6716e23f-0b6e-4cf5-9ac4-54e970be7013"/>
+				<text><![CDATA[Job]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="9" width="100" height="20" uuid="10388b80-de8e-45f9-bbe9-152c49febd23"/>
+				<text><![CDATA[Success]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="9" width="100" height="20" uuid="49a3b08c-0751-4a2b-9864-803da5b4d60c"/>
+				<text><![CDATA[Failed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="9" width="100" height="20" uuid="0f52ebe2-7029-4476-b400-d1e160145e96"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="10" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="50" y="12" width="100" height="20" uuid="5f0c771a-baba-49f9-bce8-b1a1506c0086"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="200" y="12" width="100" height="20" uuid="569a8faa-ae5a-4fb6-9a03-097ffaf75b11"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jobCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="350" y="12" width="100" height="20" uuid="dc9da513-ce8b-44ed-b2f1-a7fa680fd4d7"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{successCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="500" y="12" width="100" height="20" uuid="f5efba45-7a7f-412b-b4d4-3aa1274f5376"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{failCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="650" y="12" width="100" height="20" uuid="e785d615-6c19-497b-adb1-57b6045b720e"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

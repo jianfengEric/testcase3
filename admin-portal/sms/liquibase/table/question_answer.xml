@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534413171852-28">
+        <createTable tableName="question_answer">
+            <column name="QUESTION_ID" remarks="question template id" type="BIGINT(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LANGUAGE_ID" remarks="language id" type="BIGINT(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ANSWER" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534413171852-81">
+        <addForeignKeyConstraint baseColumnNames="QUESTION_ID" baseTableName="question_answer"
+                                 constraintName="QUESTION_ANSWER_FK1" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="question_template"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534413171852-82">
+        <addForeignKeyConstraint baseColumnNames="LANGUAGE_ID" baseTableName="question_answer"
+                                 constraintName="QUESTION_ANSWER_FK2" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="sms_language" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

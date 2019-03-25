@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.tng</groupId>
+		<artifactId>gea-portal</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../parent/</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>smm</artifactId>
+	<packaging>jar</packaging>
+	
+	<properties>
+        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	
+	<dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+    	<dependency>
+	  		<groupId>com.tng</groupId>
+	  		<artifactId>common</artifactId>
+	  		<version>1.0.0</version>
+		</dependency>
+		
+		<dependency>
+	  		<groupId>com.tng</groupId>
+	  		<artifactId>ana-client</artifactId>
+	  		<version>1.0.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.2</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+		
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
+        <!-- JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+
+        <dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>5.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fakepath</groupId>
+            <artifactId>itextasiancmaps</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>fakepath</groupId>
+            <artifactId>itextasian</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>fakepath</groupId>
+            <artifactId>lrftools</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-access -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
+        <!--<dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.jasypt/jasypt-spring31 &ndash;&gt;
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt-spring31</artifactId>
+            <version>1.9.2</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.7.4</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.8.0.RELEASE</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>1.8</version>
+        </dependency>
+    </dependencies>
+
+    <!-- ################## Profiles ################### -->
+    <!-- <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>local</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sit</id>
+            <properties>
+                <env>sit</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ssit</id>
+            <properties>
+                <env>ssit</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+        <profile>
+            <id>sprd</id>
+            <properties>
+                <env>sprd</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <env>uat</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prd</id>
+            <properties>
+                <env>prd</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+    </profiles> -->
+
+    <build>
+        <finalName>sms-server</finalName>
+        <!-- <filters>
+            <filter>src/main/resources/filters/filter-${env}.properties</filter>
+        </filters> -->
+        <!-- <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/logback.xml</include>
+                    <include>**/jasper/*.jrxml</include>
+                </includes>
+            </resource>
+
+        </resources> -->
+        <sourceDirectory>src/main/java</sourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!--<plugin>
+                 <groupId>org.liquibase</groupId>
+                 <artifactId>liquibase-maven-plugin</artifactId>
+                 <version>3.6.2</version>
+                 <configuration>
+                     &lt;!&ndash;<changeLogFile>src/main/resources/liquibase/changefile/changeFile-structure.xml</changeLogFile>&ndash;&gt;
+                     &lt;!&ndash;<propertyFile>src/main/resources/liquibase/filter/db-${env}.properties</propertyFile>&ndash;&gt;
+                    <changeLogFile>${basedir}/liquibase/db.changelog-master.xml</changeLogFile>
+                    <propertyFile>${basedir}/liquibase/filter/db-${env}.properties</propertyFile>
+                    <contexts>${env}</contexts>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                 </configuration>
+                 <dependencies>
+                     <dependency>
+                         <groupId>org.liquibase</groupId>
+                         <artifactId>liquibase-core</artifactId>
+                         <version>3.6.2</version>
+                     </dependency>
+                 </dependencies>
+                 <executions>
+                     <execution>
+                         <phase>process-resources</phase>
+                         <goals>
+                             <goal>update</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+             </plugin>-->
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>sino</id>
+            <name>sino all</name>
+            <url>http://10.0.100.210:8090/artifactory/sino-all</url>
+        </repository>
+    </repositories>
+</project>

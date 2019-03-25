@@ -1,0 +1,6 @@
+"ID","PROVIDER_NAME","ENDPOINT_URL","HTTP_METHOD","USERNAME","PASSWORD","LONG_SMS","SPECIAL_CHARACTER","SEND_FOREIGN_COUNTRY","FAST_SMS","STATUS","REMARK","CREATE_DATE","CREATE_BY","UPDATE_DATE","UPDATE_BY"
+"ACCESSU","AccessYou","http://api.accessyou.com/sms/sendsms-vercode.php","GET",,,"1","0","0","0","NACT",,"2018-08-15 13:51:51","step","2018-08-15 13:51:51","sysadmin3"
+"MACROKIOSK","MacroKiosk","http://www.etracker.cc/bulksms/mesapi.aspx","POST",,,"0","0","1","0","ACT",,"2018-08-15 13:51:51","step","2018-08-15 13:51:51","sysadmin3"
+"M800","M800","http://203.170.49.252:8080/httpRestStub/SendMsg","POST",,,"0","0","1","0","ACT",,"2018-08-15 13:51:51","step","2018-08-15 13:51:51","sysadmin3"
+"TNG","TNG SMS gateway","https://103.232.90.174:9096/send_sms","GET",,,"0","0","1","0","ACT",,"2018-08-15 13:51:51","step","2018-08-15 13:51:51","sysadmin3"
+"NEXMO","Nexmo","https://rest.nexmo.com/sms/json","POST",,,"0","0","1","0","ACT",,"2018-08-15 13:51:51","step","2018-08-15 13:51:51","sysadmin3"

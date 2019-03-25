@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534474480122-29">
+        <createTable tableName="sms_job_detail">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="SMS_JOB_ID" type="BIGINT(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MOBILE_NUMBER" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="NEW, QUEUE, SENDING, SUCCESS, FAIL, RESENT" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_TIME" type="datetime"/>
+            <column name="STATUS_CHG_TIMESTAMP" type="datetime"/>
+            <column name="SENT_TIMESTAMP" remarks="request provider API to send timestamp" type="datetime"/>
+            <column name="RESPONSE_TIMESTAMP" remarks="provider response timestamp after request the api" type="datetime"/>
+            <column name="PROVIDER_RESPONSE" remarks="response code and message from provider api" type="TEXT"/>
+            <column name="SYSTEM_RESPONSE" remarks="log the message in case http 400 no response from provider api or any important messages from SMS service system" type="TEXT"/>
+            <column name="SMS_PROVIDER_ID" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534474480122-81">
+        <addForeignKeyConstraint baseColumnNames="SMS_JOB_ID" baseTableName="sms_job_detail"
+                                 constraintName="FKSMS_JOB_DE862212" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="sms_job" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

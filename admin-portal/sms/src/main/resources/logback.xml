@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="module" value="${service.name}"/>
+    <property name="dir" value="${log.path}/logs/${module}"/>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [ %t:%r ] - [ %-5p ] - [%logger] %m%n"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>${dir}/${module}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${dir}/${module}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>192.168.1.232:9250</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"appname":"${module}"}</customFields>
+        </encoder>
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>2 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+    </appender>
+
+    <appender name="SOCKET" class="net.logstash.logback.appender.LogstashSocketAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <host>192.168.1.232</host>
+        <port>9250</port>
+        <customFields>{"appname":"${module}"}</customFields>
+    </appender>
+    <logger name="org.hibernate" level="ERROR"/>
+    <logger name="org.springframework" level="ERROR"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="LOGSTASH" />
+        <appender-ref ref="SOCKET" />
+    </root>
+
+</configuration>

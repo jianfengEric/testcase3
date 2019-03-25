@@ -1,0 +1,8 @@
+
+在sms-server项目目录下执行
+
+dev
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-dev.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=dev update
+
+sit
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-dev.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=sit update

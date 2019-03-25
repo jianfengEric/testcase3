@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534474480122-31">
+        <createTable tableName="sms_provider_aud">
+            <column name="SMS_PROVIDER_ID" type="VARCHAR(20)"/>
+            <column name="PROVIDER_NAME" type="VARCHAR(200)"/>
+            <column name="ENDPOINT_URL" type="TEXT"/>
+            <column name="HTTP_METHOD" type="VARCHAR(4)"/>
+            <column name="USERNAME" type="VARCHAR(50)"/>
+            <column name="PASSWORD" type="VARCHAR(50)"/>
+            <column name="LONG_SMS" type="TINYINT(1)"/>
+            <column name="SPECIAL_CHARACTER" type="TINYINT(1)"/>
+            <column name="SEND_FOREIGN_COUNTRY" type="TINYINT(1)"/>
+            <column name="FAST_SMS" type="TINYINT(1)"/>
+            <column name="STATUS" type="VARCHAR(10)"/>
+            <column name="REMARK" type="TEXT"/>
+            <column name="CREATE_DATE" type="datetime"/>
+            <column name="CREATE_BY" type="VARCHAR(50)"/>
+            <column name="UPDATE_DATE" type="datetime"/>
+            <column name="UPDATE_BY" type="VARCHAR(50)"/>
+            <column name="ACTION" type="CHAR(1)"/>
+            <column name="ACTION_TIME" type="datetime"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

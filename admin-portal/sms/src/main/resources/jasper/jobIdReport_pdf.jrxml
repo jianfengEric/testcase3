@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="099bc6db-4260-4bb9-819d-ce1475b68522">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="jobCount" class="java.lang.String"/>
+	<field name="successCount" class="java.lang.String"/>
+	<field name="failCount" class="java.lang.String"/>
+	<field name="totalCount" class="java.lang.String"/>
+	<field name="sender" class="java.lang.String"/>
+	<field name="provider" class="java.lang.String"/>
+	<field name="jobId" class="java.lang.String"/>
+	<field name="mobNo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="19" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="425" y="12" width="50" height="20" uuid="10388b80-de8e-45f9-bbe9-152c49febd23"/>
+				<text><![CDATA[Success]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="12" width="50" height="20" uuid="49a3b08c-0751-4a2b-9864-803da5b4d60c"/>
+				<text><![CDATA[Failed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="12" width="80" height="20" uuid="8e7a9b1d-608c-4c39-a9f0-092f93c10012"/>
+				<text><![CDATA[Send By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="12" width="80" height="20" uuid="498e4573-d914-47ba-918c-166ca4d16c9b"/>
+				<text><![CDATA[Job_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="12" width="120" height="20" uuid="05de3ab3-37f6-4418-a2f0-81998136da6b"/>
+				<text><![CDATA[Send Date Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="12" width="100" height="20" uuid="d4992b6c-59c4-48d6-ab64-aa72c6b9de1f"/>
+				<text><![CDATA[User ID/Mob No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="12" width="80" height="20" uuid="50129e8c-5ae2-4a94-97f5-379001571508"/>
+				<text><![CDATA[SMS Provider]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" x="495" y="12" width="50" height="20" uuid="f5efba45-7a7f-412b-b4d4-3aa1274f5376"/>
+				<textFieldExpression><![CDATA[$F{failCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="565" y="12" width="80" height="20" uuid="a17e7a51-c100-495a-885b-8258f5b1ca65"/>
+				<textFieldExpression><![CDATA[$F{sender}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="30" y="12" width="80" height="20" uuid="c0ded96c-a6fd-4c03-a943-35e2e6fa8796"/>
+				<textFieldExpression><![CDATA[$F{jobId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="130" y="12" width="120" height="20" uuid="71fe2e5f-b141-4a47-bb2d-885f9ccd9d02"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="285" y="12" width="100" height="20" uuid="026f5623-2857-44c6-afc5-22cb4d54daeb"/>
+				<textFieldExpression><![CDATA[$F{mobNo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="665" y="12" width="80" height="20" uuid="da7828a7-f766-4c5d-887a-cbc2e6910a6c"/>
+				<textFieldExpression><![CDATA[$F{provider}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="425" y="12" width="50" height="20" uuid="b0bebb4e-8bb8-411b-b15c-dced4e3d7f12"/>
+				<textFieldExpression><![CDATA[$F{successCount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

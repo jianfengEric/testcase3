@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534413171852-29">
+        <createTable tableName="question_template">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="QUESTION" remarks="question content" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATOR_ID" remarks="creator account" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MID" remarks="merchant mid" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534413171852-83">
+        <addForeignKeyConstraint baseColumnNames="CREATOR_ID" baseTableName="question_template"
+                                 constraintName="QUESTION_TEMPLATE_FK1" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ana_account" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

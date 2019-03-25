@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534474480122-28">
+        <createTable tableName="sms_job">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="REFERENCE_ID" remarks="The format is &quot;YY-####&quot; which YY = Year, # is number" type="VARCHAR(7)"/>
+            <column name="SMS_PROVIDER_ID" type="VARCHAR(20)"/>
+            <column name="SENDER_ACCOUNT_ID" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="APPLICATION_CODE" remarks="identify the SMS from which system" type="CHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTENT" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORIGINAL_JOB_ID" type="BIGINT(11)"/>
+            <column name="CREATE_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="TRMT-Terminate" type="VARCHAR(10)"/>
+            <column name="TERMINATE_REASON" remarks="Terminate reason" type="TEXT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534474480122-78">
+        <addForeignKeyConstraint baseColumnNames="ORIGINAL_JOB_ID" baseTableName="sms_job" constraintName="FKSMS_JOB351330"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="sms_job" validate="true"/>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534474480122-79">
+        <addForeignKeyConstraint baseColumnNames="APPLICATION_CODE" baseTableName="sms_job" constraintName="FKSMS_JOB351332"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="CODE" referencedTableName="ana_application" validate="true"/>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534474480122-80">
+        <addForeignKeyConstraint baseColumnNames="SENDER_ACCOUNT_ID" baseTableName="sms_job" constraintName="FKSMS_JOB351333"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ana_account" validate="true"/>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534474480122-89">
+        <addForeignKeyConstraint baseColumnNames="SMS_PROVIDER_ID" baseTableName="sms_job" constraintName="SMS_JOB_FK1"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="sms_provider" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<context:component-scan base-package="com.tng.portal.sms.server"/>
+	<!--<import resource="data-config.xml"/>-->
+
+
+	<bean id="smsResendTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="durability" value="true"/>
+		<property name="jobClass" value="com.tng.portal.sms.server.job.SMSResendJob"/>
+	</bean>
+
+
+	<bean id="smsResendTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" >
+			<ref bean="smsResendTask"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 0/3 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="sysGlobalScheduler" lazy-init="false" autowire="no"
+		  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="jobFactory">
+			<bean class="com.tng.portal.sms.server.job.AutowiringSpringBeanJobFactory"/>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="smsResendTrigger"/>
+			</list>
+		</property>
+		<property name="jobDetails">
+			<list>
+				<ref bean="smsResendTask"/>
+			</list>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<!--<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>-->
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="overwriteExistingJobs" value="true" />
+	</bean>
+</beans>
