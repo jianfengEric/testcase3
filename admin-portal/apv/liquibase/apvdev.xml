@@ -1,0 +1,96 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-1">-->
+        <!--<createTable tableName="approval_category_item">-->
+            <!--<column name="id" type="BIGINT">-->
+                <!--<constraints primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="code" type="VARCHAR(45)"/>-->
+            <!--<column name="desc" remarks="0 &#45;&#45; deduct money, 1 &#45;&#45; add money" type="VARCHAR(150)"/>-->
+            <!--<column name="status" remarks="ACTIVE, INACTIVE" type="VARCHAR(45)"/>-->
+            <!--<column name="create_date" type="datetime"/>-->
+            <!--<column name="create_by" type="VARCHAR(45)"/>-->
+            <!--<column name="update_date" type="datetime"/>-->
+            <!--<column name="update_by" type="VARCHAR(45)"/>-->
+        <!--</createTable>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-2">-->
+        <!--<createTable tableName="approval_result">-->
+            <!--<column name="id" type="BIGINT">-->
+                <!--<constraints primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="gea_participant_ref_id" type="VARCHAR(45)"/>-->
+            <!--<column name="gea_moneypool_ref_id" remarks="0 &#45;&#45; deduct money, 1 &#45;&#45; add money" type="VARCHAR(45)"/>-->
+            <!--<column name="ewp_apv_req_id" type="BIGINT"/>-->
+            <!--<column name="mp_apv_req_id" type="BIGINT"/>-->
+            <!--<column name="exch_rate_apv_req_id" type="BIGINT"/>-->
+            <!--<column name="charge_apv_req_id" type="BIGINT"/>-->
+            <!--<column name="approval_remark" type="VARCHAR(250)"/>-->
+            <!--<column name="approval_category_id" type="BIGINT"/>-->
+            <!--<column name="approval_status" remarks="PENDING_FOR_PROCESS, APPROVED, REJECT" type="VARCHAR(45)"/>-->
+            <!--<column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>-->
+            <!--<column name="request_user_id" type="BIGINT"/>-->
+            <!--<column name="request_user_name" type="VARCHAR(45)"/>-->
+            <!--<column name="request_date" type="datetime"/>-->
+            <!--<column name="approval_date" type="datetime"/>-->
+            <!--<column name="approval_by" type="VARCHAR(45)"/>-->
+        <!--</createTable>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-3">-->
+        <!--<createTable tableName="exchange_rate_file">-->
+            <!--<column name="id" type="BIGINT">-->
+                <!--<constraints primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="file_name" type="VARCHAR(45)"/>-->
+            <!--<column name="file_type" type="VARCHAR(45)"/>-->
+            <!--<column name="file_path" type="VARCHAR(45)"/>-->
+            <!--<column name="remark" type="VARCHAR(250)"/>-->
+            <!--<column name="status" remarks="PENDING_FOR_PROCESS, PROCESSED" type="VARCHAR(45)"/>-->
+            <!--<column name="pre_rate_file_id" type="BIGINT"/>-->
+            <!--<column name="create_date" type="datetime"/>-->
+            <!--<column name="create_by" type="VARCHAR(45)"/>-->
+            <!--<column name="update_date" type="datetime"/>-->
+            <!--<column name="update_by" type="VARCHAR(45)"/>-->
+        <!--</createTable>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-4">-->
+        <!--<createTable tableName="exchange_rate_record">-->
+            <!--<column name="id" type="BIGINT">-->
+                <!--<constraints primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="curr_from" type="VARCHAR(45)"/>-->
+            <!--<column name="curr_to" type="BIGINT"/>-->
+            <!--<column name="offer_rate" type="DECIMAL(10)"/>-->
+            <!--<column name="expire_date" type="datetime"/>-->
+            <!--<column name="exch_rate_file_id" type="BIGINT"/>-->
+            <!--<column name="create_date" type="datetime"/>-->
+            <!--<column name="create_by" type="VARCHAR(45)"/>-->
+            <!--<column name="update_date" type="datetime"/>-->
+            <!--<column name="update_by" type="VARCHAR(45)"/>-->
+        <!--</createTable>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-5">-->
+        <!--<createIndex indexName="fk_approval_category_id_idx" tableName="approval_result">-->
+            <!--<column name="approval_category_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-6">-->
+        <!--<createIndex indexName="fk_exch_rate_file_id_idx" tableName="exchange_rate_record">-->
+            <!--<column name="exch_rate_file_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-7">-->
+        <!--<createIndex indexName="fk_gea_exch_rate_id_idx" tableName="approval_result">-->
+            <!--<column name="exch_rate_apv_req_id"/>-->
+        <!--</createIndex>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-8">-->
+        <!--<addForeignKeyConstraint baseColumnNames="approval_category_id" baseTableName="approval_result" constraintName="fk_approval_category_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="approval_category_item" validate="true"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-9">-->
+        <!--<addForeignKeyConstraint baseColumnNames="exch_rate_file_id" baseTableName="exchange_rate_record" constraintName="fk_exch_rate_file_id0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="exchange_rate_file" validate="true"/>-->
+    <!--</changeSet>-->
+    <!--<changeSet author="Administrator (generated)" id="1536110824311-10">-->
+        <!--<addForeignKeyConstraint baseColumnNames="exch_rate_apv_req_id" baseTableName="approval_result" constraintName="fk_gea_exch_rate_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="exchange_rate_file" validate="true"/>-->
+    <!--</changeSet>-->
+</databaseChangeLog>

@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-10">
+        <createTable tableName="ANA_ACCOUNT_ROLE_MAP">
+            <column name="ACCOUNT_ID" remarks="Account ID" type="VARCHAR2(32)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056517"/>
+            </column>
+            <column name="ROLE_ID" remarks="Role ID" type="BIGINT(20)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056517"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Sino (generated)" id="1533879634653-53">
+        <addForeignKeyConstraint baseColumnNames="ACCOUNT_ID" baseTableName="ANA_ACCOUNT_ROLE_MAP"
+                                 constraintName="ACCOUNT_ROLE_MAP_ACCOUNT_FK" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ANA_ACCOUNT" validate="true"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1533879634653-54">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="ANA_ACCOUNT_ROLE_MAP"
+                                 constraintName="ACCOUNT_ROLE_MAP_ROLE_FK" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="ANA_ROLE" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

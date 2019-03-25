@@ -1,0 +1,6 @@
+"id","consumer","api_key","api_url_path"
+"1","EWP","867e6966-d5d5-481d-aef3-33857c960413","/mp/remote/v1/get-participant-money-pool,/mp/remote/v1/get-all-money-pool-list,/mp/remote/v1/deploy-to-prod,/mp/remote/v1/has-pending,/mp/remote/v1/is-need-clone,/mp/remote/v1/is-need-deploy,/mp/remote/v1/find-money-pool-count"
+"2","APV","867e6966-d5d5-481d-aef3-33857c960413","/mp/remote/v1/approval,/mp/remote/v1/reject,/mp/remote/v1/get-detail,/mp/remote/v1/get-approval-info,/mp/remote/v1/get-approval,/mp/remote/v1/get-request-approval,/mp/remote/v1/get-adjustment,/mp/remote/v1/save-deployment,/mp/remote/v1/get-deposit-cash-out"
+"3","DPY","867e6966-d5d5-481d-aef3-33857c960413","/mp/remote/v1/synch-deployment"
+"4","ANA","867e6966-d5d5-481d-aef3-33857c960413","/mp/remote/account/addSsoAccount,/mp/remote/account/updateClientStatus,/mp/remote/account/delete-ana-token-by-user"
+"5","AGE","867e6966-d5d5-481d-aef3-33857c960413","/mp/remote/account/delete-ana-token"

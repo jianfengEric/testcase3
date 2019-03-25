@@ -1,0 +1,5 @@
+"id","consumer","api_key","api_url_path"
+"1","MP","190f19ca-d39c-4f17-a24c-871186166703","/dpy/remote/v1/is-deploy"
+"2","APV","190f19ca-d39c-4f17-a24c-871186166703","/dpy/remote/v1/deploy-pt,/dpy/remote/v1/is-deploy,/dpy/remote/v1/deploy-mp,/dpy/remote/v1/deploy-tre,/dpy/remote/v1/deploy-srv,/dpy/remote/v1/get-deployment-date,/dpy/remote/v1/get-deployment-status,/dpy/remote/v1/get-deployment-info,/dpy/remote/v1/get-deployment-list"
+"3","AGE","190f19ca-d39c-4f17-a24c-871186166703","/dpy/remote/v1/deploy-task"
+"4","EWP","190f19ca-d39c-4f17-a24c-871186166703","/dpy/remote/v1/is-deploy"

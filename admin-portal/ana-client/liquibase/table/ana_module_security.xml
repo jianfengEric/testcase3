@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Administrator (generated)" id="1537515726992-9">
+        <createTable tableName="ana_module_security">
+            <column name="id" type="VARCHAR(32)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="consumer" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="api_key" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="api_url_path" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

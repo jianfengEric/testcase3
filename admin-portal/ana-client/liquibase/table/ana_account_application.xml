@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-8">
+        <createTable tableName="ANA_ACCOUNT_APPLICATION">
+            <column name="ACCOUNT_ID" type="VARCHAR2(32 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="APPLICATION_CODE" type="CHAR(3 BYTE)"/>
+            <column name="BINDING_ACCOUNT_ID" remarks="the account id of sub modules" type="VARCHAR2(32 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="TEMP-Temporary, LINK-Connected" type="VARCHAR2(20 BYTE)"/>
+            <column name="CREATED_TIME" type="TIMESTAMP(6)"/>
+            <column name="CREATED_BY" type="VARCHAR2(100 BYTE)"/>
+            <column name="UPDATE_TIME" type="TIMESTAMP(6)"/>
+            <column name="UPDATE_BY" type="VARCHAR2(100 BYTE)"/>
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="ANA_ACCOUNT_APPLICATION_PK"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

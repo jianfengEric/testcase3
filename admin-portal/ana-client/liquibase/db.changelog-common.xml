@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <include file="../ana-client/liquibase/table/ana_account.xml" />
+    <include file="../ana-client/liquibase/table/ana_account_access_token.xml" />
+    <include file="../ana-client/liquibase/table/ana_account_application.xml" />
+    <include file="../ana-client/liquibase/table/ana_account_aud.xml" />
+    <include file="../ana-client/liquibase/table/ana_role.xml" />
+    <include file="../ana-client/liquibase/table/ana_account_role_map.xml" />
+    <include file="../ana-client/liquibase/table/ana_function.xml" />
+    <include file="../ana-client/liquibase/table/ana_login_session.xml" />
+    <include file="../ana-client/liquibase/table/ana_permission.xml" />
+    <include file="../ana-client/liquibase/table/ana_role_aud.xml" />
+    <include file="../ana-client/liquibase/table/ana_role_function.xml" />
+    <include file="../ana-client/liquibase/table/ana_role_permission.xml" />
+    <include file="../ana-client/liquibase/table/ana_role_function_permission.xml" />
+    <include file="../ana-client/liquibase/table/ana_module_security.xml" />
+    <include file="../ana-client/liquibase/table/email_job.xml" />
+    <include file="../ana-client/liquibase/table/email_message.xml" />
+
+
+    <changeSet author="Jimmy" id="EXECUTE_SQL_COMMON">
+        <sqlFile encoding="utf8"
+                 endDelimiter="\nGO"
+                 path="../ana-client/liquibase/common_mysql.sql"
+                 stripComments="true"/>
+    </changeSet>
+
+
+    <include file="../ana-client/liquibase/db.load-data.xml" />
+
+</databaseChangeLog>

@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-17">
+        <createTable remarks="the user role access right of the field in a function" tableName="ANA_ROLE_FUNCTION">
+            <column name="ROLE_ID" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056487"/>
+            </column>
+            <column name="FUNCTION_CODE" type="VARCHAR2(50 BYTE)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056487"/>
+            </column>
+            <column name="ACCESS_RIGHT" type="VARCHAR2(2 BYTE)"/>
+            <column name="CREATE_DATE" type="TIMESTAMP(6)"/>
+            <column name="CREATOR_ACC_ID" type="VARCHAR2(32 BYTE)"/>
+            <column name="UPDATE_DATE" type="TIMESTAMP(6)"/>
+            <column name="UPDATE_BY_ACC_ID" type="VARCHAR2(32 BYTE)"/>
+            <column defaultValueNumeric="0" name="OPTLOCK_VER" type="NUMBER(11, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BEFORE_ACTIVE" remarks="Before active inactive" type="VARCHAR2(8 BYTE)"/>
+            <column name="AFTER_ACTIVE" remarks="After active inactive" type="VARCHAR2(8 BYTE)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Sino (generated)" id="1533879634653-56">
+        <addForeignKeyConstraint baseColumnNames="APPLICATION_CODE" baseTableName="ANA_FUNCTION"
+                                 constraintName="ANA_FUNCTION_APPLICATION_FK" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="CODE" referencedTableName="ANA_APPLICATION" validate="true"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1533879634653-57">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="ANA_ROLE_FUNCTION"
+                                 constraintName="ANA_ROLE_FUNCTION144525" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="ANA_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1533879634653-58">
+        <addForeignKeyConstraint baseColumnNames="FUNCTION_CODE" baseTableName="ANA_ROLE_FUNCTION"
+                                 constraintName="ANA_ROLE_FUNCTION521651" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="CODE"
+                                 referencedTableName="ANA_FUNCTION" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

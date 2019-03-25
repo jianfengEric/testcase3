@@ -1,0 +1,3 @@
+"id","consumer","api_key","api_url_path"
+"3","ANA","3474fdb1-3340-4791-b852-d1aaa2eb2c93","/apv/remote/account/addSsoAccount,/apv/remote/account/updateClientStatus,/apv/remote/account/delete-ana-token-by-user"
+"4","AGE","3474fdb1-3340-4791-b852-d1aaa2eb2c93","/apv/remote/account/delete-ana-token"

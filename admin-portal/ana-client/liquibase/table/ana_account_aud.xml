@@ -1,0 +1,66 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-9">
+        <createTable tableName="ANA_ACCOUNT_AUD">
+            <column name="ACCOUNT_ID" remarks="Account Id" type="VARCHAR2(32)"/>
+            <column name="ACCOUNT" remarks="user account" type="VARCHAR2(100)"/>
+            <column name="NAME" remarks="user name" type="VARCHAR2(255)"/>
+            <column name="PASSWORD" remarks="account password" type="VARCHAR2(100)"/>
+            <column name="EMAIL" remarks="user email" type="VARCHAR2(100)"/>
+            <column name="MOBILE" remarks="user mobile phone number" type="VARCHAR2(20)"/>
+            <column name="LANGUAGE" type="VARCHAR2(20)"/>
+            <column defaultValueComputed="current_timestamp()" name="CREATED_TIME" remarks="user created time"
+                    type="TIMESTAMP(6)"/>
+            <column name="CREATED_BY" type="VARCHAR2(100)"/>
+            <column name="UPDATED_BY" type="VARCHAR2(100)"/>
+            <column defaultValueComputed="current_timestamp()" name="UPDATED_TIME" type="TIMESTAMP(6)"/>
+            <column name="IP_ADDRESS" remarks="the last ip that the user accessed" type="VARCHAR2(100)"/>
+            <column defaultValueNumeric="1" name="INTERNAL" remarks="1-internal, 0-external" type="NUMBER(1, 0)"/>
+            <column name="EXTERNAL_GROUP_ID" remarks="indicate external user belong to which merchant(MID)"
+                    type="VARCHAR2(100)"/>
+            <column name="VERIFY_EMAIL_TYPE" remarks="A-agent email,U-the user email" type="VARCHAR2(100)"/>
+            <column defaultValueNumeric="0" name="OPTIMISTICLOCKVERSION" type="NUMBER(20, 0)"/>
+            <column name="STATUS" remarks="ACT-Active, NACT-Inactive,NVF-Not Verified,DEL-Delete"
+                    type="VARCHAR2(20 BYTE)"/>
+            <column name="USER_TYPE" remarks="AGT-Agent,ADM-Admin,USR-User" type="VARCHAR2(20 BYTE)"/>
+            <column name="DEPARTMENT_ID" type="NUMBER(11, 0)"/>
+            <column name="MERCHANT_ID" type="NUMBER(11, 0)"/>
+            <column name="ACTION" type="CHAR(1 BYTE)"/>
+            <column defaultValueComputed="current_timestamp()" name="ACTION_TIME" type="TIMESTAMP(6)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT_AUD-addColumn-FIRST_NAME">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_ACCOUNT_AUD" columnName="FIRST_NAME"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_ACCOUNT_AUD" >
+            <column name="FIRST_NAME" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT_AUD-addColumn-LAST_NAME">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_ACCOUNT_AUD" columnName="LAST_NAME"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_ACCOUNT_AUD" >
+            <column name="LAST_NAME" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT_AUD-dropColumn-NAME">
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="ANA_ACCOUNT_AUD" columnName="NAME"/>
+        </preConditions>
+        <dropColumn tableName="ANA_ACCOUNT_AUD" columnName="NAME"/>
+    </changeSet>
+
+</databaseChangeLog>

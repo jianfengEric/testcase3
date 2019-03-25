@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-12">
+        <createTable tableName="ANA_FUNCTION">
+            <column name="CODE" remarks="Function code" type="VARCHAR2(50)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056582"/>
+            </column>
+            <column name="APPLICATION_CODE" remarks="Function description" type="CHAR(3 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" remarks="foreign key to application code" type="VARCHAR2(300)"/>
+            <column name="PERMISSION_SUM" remarks="permission_sum" type="NUMBER(11, 0)"/>
+            <column defaultValueNumeric="0" name="OPTIMISTICLOCKVERSION" type="NUMBER(20, 0)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_FUNCTION-add-EXTERNAL">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_FUNCTION" columnName="EXTERNAL"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_FUNCTION" >
+            <column name="EXTERNAL" type="int(1)" remarks="1-external, 0-internal"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

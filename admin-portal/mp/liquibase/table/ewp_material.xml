@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Administrator (generated)" id="1535695714327-2">
+        <createTable tableName="ewp_material">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="material_type" type="VARCHAR(50)"/>
+            <column name="material_filename" type="VARCHAR(2000)"/>
+            <column name="material_desc" type="VARCHAR(200)"/>
+            <column name="file_path" type="VARCHAR(150)"/>
+            <column name="ewp_adjust_id" type="BIGINT"/>
+            <column name="ewp_deposit_cachout_id" type="BIGINT UNSIGNED"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-10">
+        <createIndex indexName="fk_ewp_adjust_id_idx" tableName="ewp_material">
+            <column name="ewp_adjust_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-12">
+        <createIndex indexName="fk_ewp_deposit_cachout_id_idx" tableName="ewp_material">
+            <column name="ewp_deposit_cachout_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-23">
+        <addForeignKeyConstraint baseColumnNames="ewp_adjust_id" baseTableName="ewp_material"
+                                 constraintName="fk_ewp_adjust_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_pool_adjustment"/>
+    </changeSet>
+
+</databaseChangeLog>

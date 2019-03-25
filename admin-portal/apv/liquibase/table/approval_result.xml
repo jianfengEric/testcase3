@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1536110824311-2">
+        <createTable tableName="approval_result">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_participant_ref_id" type="VARCHAR(45)"/>
+            <column name="gea_moneypool_ref_id" remarks="0 -- deduct money, 1 -- add money" type="VARCHAR(45)"/>
+            <column name="ewp_apv_req_id" type="BIGINT"/>
+            <column name="mp_apv_req_id" type="BIGINT"/>
+            <column name="exch_rate_apv_req_id" type="BIGINT"/>
+            <column name="srv_apv_req_id" type="BIGINT"/>
+            <column name="charge_apv_req_id" type="BIGINT"/>
+            <column name="approval_remark" type="VARCHAR(250)"/>
+            <column name="approval_category_id" type="BIGINT"/>
+            <column name="approval_status" remarks="PENDING_FOR_PROCESS, APPROVED, REJECT" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="request_user_id" type="VARCHAR(45)"/>
+            <column name="request_user_name" type="VARCHAR(100)"/>
+            <column name="request_date" type="datetime"/>
+            <column name="approval_date" type="datetime"/>
+            <column name="approval_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1536110824311-5">
+        <createIndex indexName="fk_approval_category_id_idx" tableName="approval_result">
+            <column name="approval_category_id"/>
+        </createIndex>
+    </changeSet>
+   
+    <changeSet author="Administrator (generated)" id="1536110824311-8">
+        <addForeignKeyConstraint baseColumnNames="approval_category_id" baseTableName="approval_result" constraintName="fk_approval_category_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="approval_category_item"/>
+    </changeSet>
+
+    <changeSet author="Owen" id="approval_result-add-deploy_ref_Id">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="approval_result" columnName="deploy_ref_Id"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="approval_result" >
+            <column name="deploy_queue_ref_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

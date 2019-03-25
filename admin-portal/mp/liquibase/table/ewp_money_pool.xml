@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1535695714327-3">
+        <createTable tableName="ewp_money_pool">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_participant_ref_id" type="VARCHAR(45)"/>
+            <column name="gea_moneypool_ref_id" type="VARCHAR(45)"/>
+            <column name="base_currency" type="VARCHAR(45)"/>
+            <column name="alert_line" type="DECIMAL(28)"/>
+            <column name="status" remarks="ACTIVE, DORMANT,SUSPEND,CLOSED" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="ajaxgu" id="addUniqueConstraint-ewp_money_pool_001"> 
+		<addUniqueConstraint columnNames="gea_moneypool_ref_id, current_envir" constraintName="uq_gea_moneypool_ref_id" tableName="ewp_money_pool" /> 
+	</changeSet> 
+
+</databaseChangeLog>

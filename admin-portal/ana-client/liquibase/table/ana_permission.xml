@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-14">
+        <createTable tableName="ANA_PERMISSION">
+            <column name="ID" remarks="Permission ID" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056569"/>
+            </column>
+            <column name="NAME" remarks="Permission name" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR2(300)"/>
+            <column defaultValueNumeric="0" name="OPTIMISTICLOCKVERSION" type="NUMBER(20, 0)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

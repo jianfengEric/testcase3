@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-3">
+        <createTable tableName="deploy_sync_map_result">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="deploy_queue_id"  type="BIGINT(20)"/>
+            <column name="target_server_name" remarks="MTH, MONEY_POOL, SERVICE, etc." type="VARCHAR(45)"/>
+            <column name="api_url" type="VARCHAR(250)"/>
+            <column name="gea_current_data" type="TEXT"/>
+            <column name="req_parameters" remarks="The 'final deploy data' is the result of comparing the 'gea current data' and 'deploy full data' " type="TEXT"/>
+            <column name="resp_code" type="VARCHAR(45)"/>
+            <column name="resp_code_desc" type="VARCHAR(250)"/>
+            <column name="retry_count" remarks="PRE_PROD, PROD, DEPLOY_TO_PROD" type="INT"/>
+            <column name="server_ack_status" remarks="OK, FAIL" type="VARCHAR(45)"/>
+            <column name="create_date"  type="DATETIME"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="DATETIME"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Administrator (generated)" id="1536110824311-5">
+        <createIndex indexName="fk_deploy_queue_id_idx" tableName="deploy_sync_map_result">
+            <column name="deploy_queue_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Administrator (generated)" id="1536110824311-8">
+        <addForeignKeyConstraint baseColumnNames="deploy_queue_id" baseTableName="deploy_sync_map_result" constraintName="fk_deploy_queue_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="deploy_queue" />
+    </changeSet>
+    
+    <changeSet id="Administrator (generated)" author="1536110824311-10">
+    	<renameColumn columnDataType="VARCHAR(45)" tableName="deploy_sync_map_result" oldColumnName="target_server_name" newColumnName="gea_server_name"/>
+    </changeSet>
+    
+    <changeSet id="Administrator (generated)" author="1536110824311-12">
+    	<addColumn tableName="deploy_sync_map_result">
+    		<column name="deploy_status" type="VARCHAR(45)" remarks="SUC, FAIL" />
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet author="ajaxgu" id="addUniqueConstraint-uq_deploy_queue_id_gea_server_name"> 
+		<addUniqueConstraint columnNames="deploy_queue_id, gea_server_name" constraintName="uq_deploy_queue_id_gea_server_name" tableName="deploy_sync_map_result" /> 
+	</changeSet> 
+
+</databaseChangeLog>

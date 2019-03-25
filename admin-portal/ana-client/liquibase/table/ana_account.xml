@@ -1,0 +1,84 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-6">
+        <createTable tableName="ANA_ACCOUNT">
+            <column name="ID" remarks="Account Id" type="VARCHAR2(32)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056573"/>
+            </column>
+            <column name="ACCOUNT" remarks="user account" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" remarks="user name" type="VARCHAR2(255)"/>
+            <column name="PASSWORD" remarks="account password" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" remarks="user email" type="VARCHAR2(100)"/>
+            <column name="MOBILE" remarks="user mobile phone number" type="VARCHAR2(20)"/>
+            <column name="LANGUAGE" type="VARCHAR2(20)"/>
+            <column defaultValueComputed="current_timestamp()" name="CREATED_TIME" remarks="user created time"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR2(100)"/>
+            <column name="UPDATED_BY" type="VARCHAR2(100)"/>
+            <column defaultValueComputed="current_timestamp()" name="UPDATED_TIME" type="TIMESTAMP(6)"/>
+            <column name="IP_ADDRESS" remarks="the last ip that the user accessed" type="VARCHAR2(100)"/>
+            <column defaultValueNumeric="1" name="INTERNAL" remarks="1-internal, 0-external" type="NUMBER(1, 0)"/>
+            <column name="EXTERNAL_GROUP_ID" remarks="indicate external user belong to which merchant(MID)"
+                    type="VARCHAR2(100)"/>
+            <column name="VERIFY_EMAIL_TYPE" remarks="A-agent email,U-the user email" type="VARCHAR2(100)"/>
+            <column defaultValueNumeric="0" name="OPTIMISTICLOCKVERSION" type="NUMBER(20, 0)"/>
+            <column name="STATUS" remarks="ACT-Active, NACT-Inactive,NVF-Not Verified,DEL-Delete"
+                    type="VARCHAR2(20 BYTE)"/>
+            <column name="USER_TYPE" remarks="AGT-Agent,ADM-Admin,USR-User" type="VARCHAR2(20 BYTE)"/>
+            <column name="DEPARTMENT_ID" type="NUMBER(11, 0)"/>
+            <column name="MERCHANT_ID" type="NUMBER(11, 0)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT-addColumn-FIRST_NAME">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_ACCOUNT" columnName="FIRST_NAME"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_ACCOUNT" >
+            <column name="FIRST_NAME" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT-addColumn-LAST_NAME">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_ACCOUNT" columnName="LAST_NAME"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_ACCOUNT" >
+            <column name="LAST_NAME" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT-addColumn-RESET_PWD_TIME">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="ANA_ACCOUNT" columnName="RESET_PWD_TIME"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="ANA_ACCOUNT" >
+            <column name="RESET_PWD_TIME" type="datetime"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Owen" id="ANA_ACCOUNT-dropColumn-NAME">
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="ANA_ACCOUNT" columnName="NAME"/>
+        </preConditions>
+        <dropColumn tableName="ANA_ACCOUNT" columnName="NAME"/>
+    </changeSet>
+
+
+</databaseChangeLog>

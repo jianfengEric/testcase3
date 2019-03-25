@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Sino (generated)" id="1535016193661-2">
+        <createTable tableName="deploy_queue">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="deploy_version_no"  type="VARCHAR(45)"/>
+            <column name="gea_participant_ref_id" type="VARCHAR(45)"/>
+            <column name="deploy_full_data" type="TEXT"/>
+            <column name="schedule_deploy_date" type="DATETIME"/>
+            <column name="deploy_envir" remarks="PRE_PROD, PROD, DEPLOY_TO_PROD" type="VARCHAR(45)"/>
+            <column name="status" remarks="PENDING_FOR_DEPLOY, DEPLOYED,FAIL,CANCEL" type="VARCHAR(45)"/>
+            <column name="status_reason" type="VARCHAR(250)"/>
+            <column name="create_date" type="DATETIME"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="DATETIME"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="deploy_type" type="VARCHAR(45)" remarks="PARTICIPANT, ADJUSTMENT,DEPOSIT, CASH_OUT,EXCHANGE_RATE,SERVICE_MARKUP,SERVICE"/>
+            <column name="deploy_ref_id" type="BIGINT" remarks="store the related reference id from deployment table in each module"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,9 @@
+"ID","JOB","EMAIL_ACCOUNT_ID","SUBJECT","SENDER","RECEIVERS","EMAIL_TEMPLATE"
+"13","sendRegisteredAccountEmail","2","TNG Portal login account registration","licolin21@gmail.com",,"<p>Dear Sir/Madam,</p><p><br/></p><p>System created login account for [${companyNameEn}]:</p><p> Account: [${account}] </p><p><br/></p><p><br/></p><p>This is the system generated email, don't reply to this email.</p>
+<a href=""${link}"" target=\""_blank\"">Click activation</a>"
+"14","sendAccountPasswordEmail","2","TNG Portal Patronage Activation Notification","15220006220@163.com",,"<p>Dear Sir/Madam,</p>
+
+<p> </p>
+
+<p>It's my pleasure and honor to welcome you to TNG. Your patronage has been activated. Hope you have a great experience with our patronage benefit and enjoy the journey. Please answer the security question in login page to complete the account registration.</p>
+<p> Account: [${account}] </p><p> Password:[${password}]</p>"

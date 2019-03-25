@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-7">
+        <createTable tableName="ANA_ACCOUNT_ACCESS_TOKEN">
+            <column name="ID" remarks="token ID" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056544"/>
+            </column>
+            <column name="ACCOUNT_ID" remarks="foreign key to account ID" type="VARCHAR2(32)"/>
+            <column name="TOKEN" remarks="access token" type="VARCHAR2(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_timestamp()" name="EXPIRATION_TIME" remarks="token expiration time"
+                    type="TIMESTAMP(6)"/>
+            <column name="TOKEN_COMPONENT" remarks="component name" type="VARCHAR2(30)"/>
+            <column defaultValueNumeric="0" name="OPTIMISTICLOCKVERSION" type="NUMBER(20, 0)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Sino (generated)" id="1533879634653-33">
+        <createIndex indexName="ANA_ACCOUNT_ACCESS_TOKEN_UK1" tableName="ANA_ACCOUNT_ACCESS_TOKEN" unique="true">
+            <column name="ACCOUNT_ID"/>
+        </createIndex>
+        <!--<addUniqueConstraint columnNames="ACCOUNT_ID" constraintName="ANA_ACCOUNT_ACCESS_TOKEN_UK1"-->
+                             <!--tableName="ANA_ACCOUNT_ACCESS_TOKEN"/>-->
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1533879634653-55">
+        <addForeignKeyConstraint baseColumnNames="ACCOUNT_ID" baseTableName="ANA_ACCOUNT_ACCESS_TOKEN"
+                                 constraintName="ANA_ACCOUNT_ACCESS_TOKEN_FK" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ANA_ACCOUNT" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

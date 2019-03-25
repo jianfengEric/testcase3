@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>gea-portal</artifactId>
+        <groupId>com.tng</groupId>
+        <version>1.0.0</version>
+        <relativePath>../parent/</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ana-client</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.tng</groupId>
+            <artifactId>log-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tng</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- spring -->
+       <!-- <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.10.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${version.spring.security}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${version.spring.security}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${version.spring.security}</version>
+        </dependency>-->
+
+
+
+
+        <!-- <dependency>
+             <groupId>com.mangofactory</groupId>
+             <artifactId>swagger-springmvc</artifactId>
+             <version>1.0.2</version>
+         </dependency>-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
+        <!-- Hibernate+JPA -->
+       <!-- <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${version.hibernate}</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${version.hibernate.validation}</version>
+        </dependency>-->
+
+        <!-- JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+
+      <!--  <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>-->
+        <dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt-spring31 -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt-spring31</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+    </dependencies>
+
+
+    <!-- ################## Profiles ################### -->
+    <!-- <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sit</id>
+            <properties>
+                <env>sit</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ssit</id>
+            <properties>
+                <env>ssit</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+        <profile>
+            <id>sprd</id>
+            <properties>
+                <env>sprd</env>
+                <skipunittest>true</skipunittest>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <env>uat</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prd</id>
+            <properties>
+                <env>prd</env>
+                <skipunittest>false</skipunittest>
+            </properties>
+        </profile>
+
+    </profiles> -->
+
+    <build>
+        <finalName>ana</finalName>
+        <!-- <filters>
+            <filter>src/main/resources/filters/filter-${env}.properties</filter>
+        </filters> -->
+        <!-- <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources> -->
+        <sourceDirectory>src/main/java</sourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Proguard configs -->
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>proguard</goal></goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <obfuscate>true</obfuscate>
+                    <options>
+                        <option>-dontoptimize</option>
+                        <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod</option>
+                        <option>-ignorewarnings</option>
+                        <option>-keep public class * {public protected &lt;fields&gt;; public protected &lt;methods&gt; ;}</option>
+                        <option>-keep public class com.tng.portal.ana.bean.* { * ;}</option>
+                        <option>-keep public class com.tng.portal.ana.entity.* { * ;}</option>
+                        <option>-keep public class com.tng.portal.ana.dto.* { * ;}</option>
+                        <option>-keep public class com.tng.portal.ana.vo.* { * ;}</option>
+                        <option>-keepclassmembers enum * {*;}</option>
+                        <!-- <option>-keepclassmembers class * { @org.springframework.beans.factory.annotation.Autowired *; }</option> -->
+                    </options>
+                    <outjar>ana.jar</outjar>
+                    <libs>
+                        <lib>${java.home}/lib/rt.jar</lib>
+                    </libs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.proguard</groupId>
+                        <artifactId>proguard-base</artifactId>
+                        <version>5.3.3</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- repackage by jarjar for proguard jar has problem during runtime -->
+            <!-- https://sonatype.github.io/jarjar-maven-plugin/ -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>jarjar-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jarjar</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>asm:asm</include>
+                                <include>org.sonatype.sisu.inject:cglib</include>
+                            </includes>
+                            <rules>
+                                <rule>
+                                    <pattern>org.dummy.**</pattern>
+                                    <result>com.dummy.@1</result>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--         	<plugin> -->
+            <!-- 				<groupId>org.liquibase</groupId> -->
+            <!-- 				<artifactId>liquibase-maven-plugin</artifactId> -->
+            <!-- 				<version>3.0.5</version> -->
+            <!-- 				<configuration> -->
+            <!-- 					<changeLogFile>src/main/resources/liquibase/changefile/changeFile-structure.xml</changeLogFile> -->
+            <!-- 					<propertyFile>src/main/resources/liquibase/filter/db-${env}.properties</propertyFile> -->
+            <!-- 				</configuration> -->
+            <!-- 				<dependencies> -->
+            <!-- 					<dependency> -->
+            <!-- 						<groupId>org.liquibase</groupId> -->
+            <!-- 						<artifactId>liquibase-core</artifactId> -->
+            <!-- 						<version>3.0.5</version> -->
+            <!-- 					</dependency> -->
+            <!-- 				</dependencies> -->
+            <!-- 				<executions> -->
+            <!-- 					<execution> -->
+            <!-- 						<phase>process-resources</phase> -->
+            <!-- 						<goals> -->
+            <!-- 							<goal>update</goal> -->
+            <!-- 						</goals> -->
+            <!-- 					</execution> -->
+            <!-- 				</executions> -->
+            <!-- 			</plugin> -->
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Administrator (generated)" id="1535695714327-1">
+        <createTable tableName="ewp_pool_deployment">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_participant_ref_id" type="VARCHAR(45)"/>
+            <column name="request_approval_id" type="BIGINT"/>
+            <column name="schedule_deploy_date" type="datetime"/>
+            <column name="deploy_note" type="VARCHAR(200)"/>
+            <column name="deploy_version_no" type="VARCHAR(45)"/>
+            <column name="status" type="VARCHAR(45)"/>
+            <column name="deploy_envir" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-19">
+        <createIndex indexName="fk_request_approval_id_idx" tableName="ewp_pool_deployment">
+            <column name="request_approval_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-32">
+        <addForeignKeyConstraint baseColumnNames="request_approval_id" baseTableName="ewp_pool_deployment"
+                                 constraintName="fk_request_approval_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="request_approval"/>
+    </changeSet>
+
+
+</databaseChangeLog>

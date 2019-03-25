@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1535695714327-8">
+        <createTable tableName="request_approval">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="gea_participant_ref_id" type="VARCHAR(45)"/>
+            <column name="approval_type" type="VARCHAR(50)"/>
+            <column name="ewp_money_pool_id" type="BIGINT"/>
+            <column name="ewp_mp_change_req_id" type="BIGINT"/>
+            <column name="ewp_pool_adjust_id" type="BIGINT"/>
+            <column name="ewp_deposit_cashout_id" type="BIGINT"/>
+            <column name="status" type="VARCHAR(45)"/>
+            <column name="status_reason" type="VARCHAR(100)"/>
+            <column defaultValueBoolean="false" name="is_need_deploy" remarks="true -- have not been deployed to prod before and all tab information should be inputted and approved, false -- had been deployed to prod or tab information have not completed yet" type="BIT(1)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+            <column name="request_remark" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-11">
+        <createIndex indexName="fk_ewp_adjust_id_idx" tableName="request_approval">
+            <column name="ewp_pool_adjust_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-13">
+        <createIndex indexName="fk_ewp_deposit_cashout_id_idx" tableName="request_approval">
+            <column name="ewp_deposit_cashout_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-14">
+        <createIndex indexName="fk_ewp_mp_change_req_id_idx" tableName="request_approval">
+            <column name="ewp_mp_change_req_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="JIMMY" id="ADD_FK_MONEY_POOL_ID">
+        <addForeignKeyConstraint baseColumnNames="ewp_money_pool_id" baseTableName="request_approval"
+                                 constraintName="fk_ewp_money_pool_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_money_pool"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-22">
+        <addForeignKeyConstraint baseColumnNames="ewp_pool_adjust_id" baseTableName="request_approval"
+                                 constraintName="fk_ewp_adjust_approval_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_pool_adjustment"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-25">
+        <addForeignKeyConstraint baseColumnNames="ewp_deposit_cashout_id" baseTableName="request_approval"
+                                 constraintName="fk_ewp_deposit_cashout_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_pool_deposit_cashout"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-26">
+        <addForeignKeyConstraint baseColumnNames="ewp_mp_change_req_id" baseTableName="request_approval"
+                                 constraintName="fk_ewp_mp_change_req_id" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="ewp_mp_change_req"/>
+    </changeSet>
+
+</databaseChangeLog>

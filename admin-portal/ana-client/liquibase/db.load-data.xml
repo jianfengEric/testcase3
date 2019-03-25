@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+<changeSet author="Jimmy" id="LOAD_DATA_ANA_ACCOUNT_1" runOnChange="true">
+<loadUpdateData file="../ana-client/liquibase/data/ana_account.csv" tableName="ANA_ACCOUNT" primaryKey="ID"/>
+</changeSet>
+
+        <changeSet author="Dong" id="LOAD_DATA_ANA_ACCOUNT_2" runOnChange="true">
+            <loadUpdateData file="../ana-client/liquibase/data/ana_account_manager.csv" tableName="ANA_ACCOUNT" primaryKey="ID"/>
+        </changeSet>
+        <changeSet author="Dong" id="LOAD_DATA_ANA_ACCOUNT_3" runOnChange="true">
+            <loadUpdateData file="../ana-client/liquibase/data/ana_account_qa.csv" tableName="ANA_ACCOUNT" primaryKey="ID"/>
+        </changeSet>
+</databaseChangeLog>

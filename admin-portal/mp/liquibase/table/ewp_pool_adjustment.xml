@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Administrator (generated)" id="1535695714327-5">
+        <createTable tableName="ewp_pool_adjustment">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="money_pool_id" type="BIGINT"/>
+            <column name="adjust_type" remarks="0 -- deduct money, 1 -- add money" type="INT"/>
+            <column name="amount" type="DECIMAL(24, 4)"/>
+            <column name="status" remarks="PENDING_FOR_PROCESS, APPROVED, REJECT" type="VARCHAR(45)"/>
+            <column name="current_envir" remarks="PRE_PROD, PROD" type="VARCHAR(45)"/>
+            <column name="create_date" type="datetime"/>
+            <column name="create_by" type="VARCHAR(45)"/>
+            <column name="update_date" type="datetime"/>
+            <column name="update_by" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-16">
+        <createIndex indexName="fk_money_pool_id_idx" tableName="ewp_pool_adjustment">
+            <column name="money_pool_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1535695714327-27">
+        <addForeignKeyConstraint baseColumnNames="money_pool_id" baseTableName="ewp_pool_adjustment" constraintName="fk_money_pool_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ewp_money_pool"/>
+    </changeSet>
+    
+    <changeSet author="ajax" id="ewp_pool_adjustment_gea_tx_ref_no">
+        <addColumn tableName="ewp_pool_adjustment" >
+            <column name="gea_tx_ref_no" type="varchar(36)" />
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

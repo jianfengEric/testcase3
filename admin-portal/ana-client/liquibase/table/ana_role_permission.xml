@@ -1,0 +1,46 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Sino (generated)" id="1533879634653-19">
+        <createTable remarks="the user role access right of the field in a permisssion" tableName="ANA_ROLE_PERMISSION">
+            <column name="ROLE_ID" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056594"/>
+            </column>
+            <column name="PERMISSION_ID" type="BIGINT(20)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056594"/>
+            </column>
+            <column name="ACCESS_RIGHT" type="VARCHAR2(2 BYTE)"/>
+            <column name="CREATE_DATE" type="TIMESTAMP(6)"/>
+            <column name="CREATOR_ACC_ID" type="VARCHAR2(32 BYTE)"/>
+            <column name="UPDATE_DATE" type="TIMESTAMP(6)"/>
+            <column name="UPDATE_BY_ACC_ID" type="VARCHAR2(32 BYTE)"/>
+            <column defaultValueNumeric="0" name="OPTLOCK_VER" type="NUMBER(11, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PERMISSION_NAME" type="VARCHAR2(100)"/>
+            <column name="FUNCTION_CODE" type="VARCHAR2(50)">
+                <constraints primaryKey="true" primaryKeyName="SYS_C0056594"/>
+            </column>
+            <column name="BEFORE_ACTIVE" remarks="Before active inactive" type="VARCHAR2(8 BYTE)"/>
+            <column name="AFTER_ACTIVE" remarks="After active inactive" type="VARCHAR2(8 BYTE)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Sino (generated)" id="1533879634653-59">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="ANA_ROLE_PERMISSION"
+                                 constraintName="ANA_ROLE_PERMISSION144525" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="ANA_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="Sino (generated)" id="1533879634653-60">
+        <addForeignKeyConstraint baseColumnNames="PERMISSION_ID" baseTableName="ANA_ROLE_PERMISSION"
+                                 constraintName="ANA_ROLE_PERMISSION521651" deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="ANA_PERMISSION" validate="true"/>
+    </changeSet>
+
+
+</databaseChangeLog>

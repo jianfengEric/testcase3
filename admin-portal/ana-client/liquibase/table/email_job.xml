@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+<changeSet author="Administrator (generated)" id="1550128973031-16">
+    <createTable tableName="email_job">
+        <column autoIncrement="true" name="ID" type="BIGINT">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="JOB" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="EMAIL_ACCOUNT_ID" type="DECIMAL(11)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="SUBJECT" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="SENDER" type="VARCHAR(300)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="RECEIVERS" type="VARCHAR(1000)"/>
+        <column name="EMAIL_TEMPLATE" type="VARCHAR(2000)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+</changeSet>
+</databaseChangeLog>
