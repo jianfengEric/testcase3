@@ -80,11 +80,11 @@ public class RequestApprovalServiceImpl implements RequestApprovalService{
             throw new BusinessException(SystemMsg.ErrorMsg.CAN_NOT_BE_EMPTY.getErrorCode(), new String[]{"ewalletParticipant or allNull"});
         }
 
-        if(CollectionUtils.isNotEmpty(ewalletParticipant.getRequestApproval())
+        /*if(CollectionUtils.isNotEmpty(ewalletParticipant.getRequestApproval())
                 && ewalletParticipant.getRequestApproval().stream().anyMatch(
                 		item -> item.getStatus().equals(RequestApprovalStatus.PENDING_FOR_APPROVAL) && item.getCurrentEnvir().equals(instance))){
             throw new BusinessException(SystemMsg.EwpErrorMsg.HAS_PENDING_FOR_APPROVAL.getErrorCode());
-        }
+        }*/
 
         RequestApproval requestApproval = new RequestApproval();
         requestApproval.setCreateDate(new Date());
