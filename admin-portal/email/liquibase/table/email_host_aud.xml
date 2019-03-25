@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-20">
+        <createTable tableName="email_host_aud">
+            <column name="CODE" type="VARCHAR(10)"/>
+            <column name="PROVIDER" type="VARCHAR(50)"/>
+            <column name="HOST1" type="VARCHAR(100)"/>
+            <column name="HOST2" type="VARCHAR(100)"/>
+            <column name="REQUIRE_AUTH" type="TINYINT(1)"/>
+            <column name="SECURE_TYPE" type="VARCHAR(3)"/>
+            <column name="PORT" type="INT(5)"/>
+            <column name="PRIORITY" type="DECIMAL(2)"/>
+            <column name="STATUS" type="VARCHAR(4)"/>
+            <column name="EMAIL_SIZE_LIMIT" type="BIGINT(10)"/>
+            <column name="ACTION" type="CHAR(1)"/>
+            <column name="ACTION_TIME" type="datetime"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,4 @@
+"CODE","PROVIDER","HOST1","HOST2","REQUIRE_AUTH","SECURE_TYPE","PORT","PRIORITY","STATUS","EMAIL_SIZE_LIMIT"
+"SINA","sina","smtp.sina.com","smtp.sina.com","1","NIL","25","1","ACT","5"
+"GMAIL","GMAIL","smtp.gmail.com","smtp.gmail.com","2","SSL","465","2","ACT","5"
+

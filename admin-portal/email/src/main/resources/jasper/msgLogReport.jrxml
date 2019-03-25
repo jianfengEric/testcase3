@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="msgLogReport" language="groovy" pageWidth="1050" pageHeight="842" columnWidth="1010" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79524dc3-6ebe-435a-a39a-2fb12debd440">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="5ca0ca72-745a-4ee8-982e-b7639388e427"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<field name="content" class="java.lang.String"/>
+	<field name="requestId" class="java.lang.String"/>
+	<field name="sender" class="java.lang.String"/>
+	<field name="requestReceivedDate" class="java.lang.String"/>
+	<field name="requestReceivedTime" class="java.lang.String"/>
+	<field name="module" class="java.lang.String"/>
+	<field name="loginId" class="java.lang.String"/>
+	<field name="login" class="java.lang.String"/>
+	<field name="gateway" class="java.lang.String"/>
+	<field name="recipient" class="java.lang.String"/>
+	<field name="attachment" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="responseCode" class="java.lang.String"/>
+	<field name="responseContent" class="java.lang.String"/>
+	<field name="responseTime" class="java.lang.String"/>
+	<field name="reSendRetryCount" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="422" y="15" width="228" height="20" uuid="4bd5e239-463c-49ff-a656-4a9a3a500585"/>
+				<textFieldExpression><![CDATA["MSG Log Report - "+$P{reportDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="502" y="0" width="114" height="42" uuid="88466cb7-4171-4f85-b28d-6900b6427027"/>
+				<text><![CDATA[Content]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="937" y="0" width="73" height="42" uuid="fd5466e6-de52-4369-b6b6-a5e308c5c8e5"/>
+				<text><![CDATA[re-send
+retry
+count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="382" y="0" width="65" height="42" uuid="e7dbe31e-36a1-46b3-b1db-907fadac96b6"/>
+				<text><![CDATA[Sender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="52" y="0" width="63" height="42" uuid="0aea14b9-c455-4198-a5bf-a38707cb3354"/>
+				<text><![CDATA[Request
+received
+Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="115" y="0" width="64" height="42" uuid="4aa0b251-795c-432e-a024-76c0f18899ac"/>
+				<text><![CDATA[Request
+received
+Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="179" y="0" width="42" height="42" uuid="b8278b24-dcec-48d3-ae47-5948b148f32f"/>
+				<text><![CDATA[Module]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="221" y="0" width="51" height="42" uuid="4c49e572-8893-473c-b83b-1f1c87a793cd"/>
+				<text><![CDATA[login id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="272" y="0" width="56" height="42" uuid="13813c5f-a652-447b-a845-2298eff6b61e"/>
+				<text><![CDATA[SMTP login]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="328" y="0" width="54" height="42" uuid="7268e6e3-3ba5-4985-a927-34c9da3a7728"/>
+				<text><![CDATA[SMTP
+gateway]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="447" y="0" width="55" height="42" uuid="b50a5d61-fc29-4068-9f78-784c289c1993"/>
+				<text><![CDATA[Recipient]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="616" y="0" width="70" height="42" uuid="70a06a87-3567-466d-9145-6e0fbb1e8028"/>
+				<text><![CDATA[Attachment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="686" y="0" width="65" height="42" uuid="dcbb2446-62f8-49da-8395-c5e6d57589e5"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="751" y="0" width="57" height="42" uuid="3933901d-1943-4d7f-ad31-2008e4bd293f"/>
+				<text><![CDATA[SMTP server
+response
+code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="808" y="0" width="62" height="42" uuid="b041c792-9634-47b2-b751-3dc65e957f24"/>
+				<text><![CDATA[SMTP
+response
+content]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="870" y="0" width="67" height="42" uuid="62b7b389-d1ed-4dd0-8ed3-b16fa98e95b1"/>
+				<text><![CDATA[SMTP
+response
+time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="52" height="42" uuid="d5ec41cb-bd4d-4048-9f73-6e0c603867b2"/>
+				<text><![CDATA[Request
+ID]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-23" y="47" width="1050" height="1" uuid="2b8a6ab5-9866-44e9-9325-c07833419fa0"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="502" y="0" width="114" height="20" uuid="2578cf7c-70db-4aa3-b1a6-7a15e3984834"/>
+				<textFieldExpression><![CDATA[$F{content}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="52" height="20" uuid="24e4c2c8-147e-4f56-aeaa-f6d108fcd10b"/>
+				<textFieldExpression><![CDATA[$F{requestId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="52" y="0" width="63" height="20" uuid="f50ef008-a893-4f2f-8374-99be285ccd03"/>
+				<textFieldExpression><![CDATA[$F{requestReceivedDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="382" y="0" width="65" height="20" uuid="bf8947c9-2a69-4600-9b45-a7f467ecf0d1"/>
+				<textFieldExpression><![CDATA[$F{sender}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="115" y="0" width="64" height="20" uuid="ebe123b9-9460-42fb-b1d3-00653bd1346a"/>
+				<textFieldExpression><![CDATA[$F{requestReceivedTime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="179" y="0" width="42" height="20" uuid="578f2c96-9fc8-402b-8a28-1d75bdc7621b"/>
+				<textFieldExpression><![CDATA[$F{module}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="221" y="0" width="51" height="20" uuid="8d437190-fdeb-4a26-9e9c-67098f5b4286"/>
+				<textFieldExpression><![CDATA[$F{loginId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="272" y="0" width="56" height="20" uuid="69de94b1-c43b-4008-b5a2-8d347cd27538"/>
+				<textFieldExpression><![CDATA[$F{login}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="328" y="0" width="54" height="20" uuid="2cc1c074-13c8-40e1-a6c9-42d9b82dab87"/>
+				<textFieldExpression><![CDATA[$F{gateway}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="447" y="0" width="55" height="20" uuid="2d1879d5-7b1f-4b3f-b3d4-1eb1adcbf11a"/>
+				<textFieldExpression><![CDATA[$F{recipient}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="616" y="0" width="70" height="20" uuid="b227d4db-28fd-43ca-928d-e31dd99c88de"/>
+				<textFieldExpression><![CDATA[$F{attachment}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="686" y="0" width="65" height="20" uuid="2639bff8-47a3-4abb-86fa-9fb7fa652ed6"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="751" y="0" width="57" height="20" uuid="05463bb8-229f-46dd-8d91-6806ef890f71"/>
+				<textFieldExpression><![CDATA[$F{responseCode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="808" y="0" width="62" height="20" uuid="98fc2759-4b7b-4bbd-919e-ec61c9ac55c8"/>
+				<textFieldExpression><![CDATA[$F{responseContent}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="870" y="0" width="67" height="20" uuid="faf364ec-bcd1-485e-a2ee-ad753f7f9ac7"/>
+				<textFieldExpression><![CDATA[$F{responseTime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="937" y="0" width="73" height="20" uuid="d7e49408-33b1-44f2-8cbe-182fbbb602b7"/>
+				<textFieldExpression><![CDATA[$F{reSendRetryCount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

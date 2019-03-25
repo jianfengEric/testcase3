@@ -1,0 +1,6 @@
+"CODE","APPLICATION_CODE","DESCRIPTION","PERMISSION_SUM","OPTIMISTICLOCKVERSION"
+"USER_ACCOUNT","MSG","Account management","1999","0"
+"USER_ROLE","MSG","ROLE management","15","0"
+"ACCOUNT_CONFIGURATION","MSG","Account Configuration","1999","0"
+"MSG_REPORT","MSG","Message Report","2","0"
+"SMTP_CONFIGURATION","MSG","SMTP Configuration","1999","0"

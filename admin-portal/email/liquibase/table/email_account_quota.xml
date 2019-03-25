@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-16">
+        <createTable remarks="for some smtp services, user account is limited to send email in a period. If quota record is available, system need to controlled by the send_quota. If no quota record, the user a/c has no sending limit." tableName="email_account_quota">
+            <column name="EMAIL_ACCOUNT_ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="QUOTA_PERIOD" remarks="D - daily; M - monthly" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_QUOTA" remarks="sending quota limit within a period." type="DECIMAL(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_COUNTER" remarks="increment 1 on each email sent by this account." type="INT(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_DATE" type="datetime"/>
+            <column name="OPTLOCK_VER" type="BIGINT(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534304550335-62">
+        <addForeignKeyConstraint baseColumnNames="EMAIL_ACCOUNT_ID" baseTableName="email_account_quota"
+                                 constraintName="FKEMAIL_ACCO629718" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT"
+                                 onUpdate="RESTRICT" referencedColumnNames="ID"
+                                 referencedTableName="email_account" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

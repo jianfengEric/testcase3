@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-18">
+        <createTable remarks="the main body part of email content" tableName="email_content">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="SENDER_EMAIL" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUBJECT" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_SEND_TIME" remarks="null if immediately send." type="datetime"/>
+            <column name="CONTENT" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="SENT - already sent; QUE - in queue to be sent; CAN - canceled;" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS_CHG_TIME" type="datetime"/>
+            <column name="APPLICATION_CODE" remarks="send from which application module. Eg. MAM" type="VARCHAR(5)"/>
+            <column name="CREATOR_ACC_ID" remarks="ana account id if applicable." type="VARCHAR(32)"/>
+            <column name="CREATE_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OPTLOCK_VER" type="BIGINT(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTENT_TYPE" remarks="TXT,HTM" type="VARCHAR(3)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

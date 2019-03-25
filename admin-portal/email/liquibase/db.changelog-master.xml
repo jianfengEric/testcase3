@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <include file="../common/liquibase/db.changelog-common.xml" />
+    <include file="../ana-client/liquibase/db.changelog-common.xml" />
+
+    <include file="liquibase/table/email_host.xml" />
+    <include file="liquibase/table/email_account.xml" />
+    <include file="liquibase/table/email_account_quota.xml" />
+    <include file="liquibase/table/email_host_aud.xml" />
+    <include file="liquibase/table/email_content.xml" />
+    <include file="liquibase/table/email_attachment.xml" />
+    <include file="liquibase/table/email_recipient.xml" />
+
+
+    <changeSet author="Jimmy" id="EXECUTE_SQL">
+        <sqlFile encoding="utf8"
+                 endDelimiter="\nGO"
+                 path="liquibase/mysql.sql"
+                 stripComments="true"/>
+    </changeSet>
+
+
+    <include file="liquibase/db.load-data.xml" />
+
+</databaseChangeLog>

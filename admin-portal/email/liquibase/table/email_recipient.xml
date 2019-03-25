@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-22">
+        <createTable remarks="an email can be sent to multiple recipients and this table is to store the multiple recipients one by one." tableName="email_recipient">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EMAIL_CONTENT_ID" type="BIGINT(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECIPIENT_EMAIL" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_TYPE" remarks="NOR - normal, CC - carbon copy, BCC - Blind carbon copy" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SERVER_RESPONSE_CODE" type="VARCHAR(20)"/>
+            <column name="SERVER_RESPONSE_MSG" type="TEXT"/>
+            <column name="SERVER_RESPONSE_TIMESTAMP" remarks="the timestamp of smtp gateway response of this send." type="datetime"/>
+            <column name="RESEND_COUNT" remarks="how many time retry to send" type="TINYINT(2)"/>
+            <column name="PREV_ATTEMPT_SENT" remarks="The last previous sent timestamp (for fail retry or resend)" type="datetime"/>
+            <column name="SENT_TIME" remarks="the timestamp of this email pass to smtp gateway." type="datetime"/>
+            <column name="STATUS" remarks="SENT - sent but waiting for server response result; QUE- in queue to be sent; SUC - sent and success; FAIL - sent but failed. CAN - cancelled" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS_CHG_TIME" remarks="the last update timestamp of status changed." type="datetime"/>
+            <column name="UPDATE_DATE" type="datetime"/>
+            <column name="OPTLOCK_VER" type="BIGINT(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

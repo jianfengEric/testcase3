@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MSGLogReport" language="groovy" pageWidth="1050" pageHeight="595" orientation="Landscape" columnWidth="1010" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="9c87d979-4600-47cd-aa3b-66203774742e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" isBold="true"/>
+	<style name="Detail" fontName="Arial"/>
+	<subDataset name="dataset1" uuid="9cd064b0-f401-41e6-8d59-0c353f9839b1"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="requestReceivedDate" class="java.lang.String"/>
+	<field name="requestId" class="java.lang.String"/>
+	<field name="requestReceivedTime" class="java.lang.String"/>
+	<field name="module" class="java.lang.String"/>
+	<field name="loginId" class="java.lang.String"/>
+	<field name="login" class="java.lang.String"/>
+	<field name="gateway" class="java.lang.String"/>
+	<field name="sender" class="java.lang.String"/>
+	<field name="recipient" class="java.lang.String"/>
+	<field name="content" class="java.lang.String"/>
+	<field name="attachment" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="responseCode" class="java.lang.String"/>
+	<field name="responseContent" class="java.lang.String"/>
+	<field name="responseTime" class="java.lang.String"/>
+	<field name="reSendRetryCount" class="java.lang.String"/>
+	<group name="Group1" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupHeader>
+			<band height="52" splitType="Stretch">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="1" y="19" width="41" height="20" uuid="91df6a4e-03b1-4823-b8f2-5149dcc9d492"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Request ID"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="42" y="19" width="50" height="20" uuid="406568ea-37d0-47cf-9c66-17f9fec4139c"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Request received Date"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="92" y="19" width="54" height="20" uuid="30d479e9-2e36-4713-89fc-a08d33eeb254"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Request received Time"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="145" y="19" width="48" height="20" uuid="a04f3626-6e58-42f7-85e4-d7a52c24bff5"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Module"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="267" y="19" width="74" height="20" uuid="b1719769-03ef-43ba-ac3d-53445a47e554"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["SMTP login"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="341" y="19" width="74" height="20" uuid="505c7693-8d98-45e7-a323-ebbbdda0e731"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["SMTP gateway"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="193" y="19" width="74" height="20" uuid="81d5aa8d-3eed-4fb7-ba57-2de3a34028b6"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["login id"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="415" y="19" width="74" height="20" uuid="a7492ae6-b236-4d65-9b44-59279461a2f7"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Sender"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="489" y="19" width="74" height="20" uuid="44268d2d-af23-4121-8de8-4fcf37f17375"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Recipient"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="563" y="19" width="74" height="20" uuid="1df055d9-a20b-4fbc-8755-e6b7ca87c831"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Content"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="637" y="19" width="58" height="20" uuid="c4f49ec2-eaa8-4932-bdd9-04ad4e0de02f"/>
+					<textElement markup="none">
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Attachment"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="695" y="19" width="46" height="20" uuid="b85c28d2-0cf5-4e26-8179-11886e6a2d24"/>
+					<textFieldExpression><![CDATA["Status"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="741" y="19" width="63" height="20" uuid="e4e35304-2c3b-4f60-900a-dd4a89cf444f"/>
+					<textFieldExpression><![CDATA["SMTP server response code"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="804" y="19" width="62" height="20" uuid="d90e9ca8-735e-4c49-b90a-d280c24612f0"/>
+					<textFieldExpression><![CDATA["SMTP response content"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="866" y="19" width="56" height="20" uuid="4aff2b82-15a5-4043-9ec0-4599616c0a40"/>
+					<textFieldExpression><![CDATA["SMTP response time"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="922" y="19" width="75" height="20" uuid="b50fe050-81c1-44cb-b5ac-aaa32ca29b64"/>
+					<textFieldExpression><![CDATA["re-send retry count"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="1">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="802" height="1" uuid="5e7c3879-0586-41e8-8d80-45d73fbc2e18"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} ==1]]></printWhenExpression>
+			<textField>
+				<reportElement style="Title" x="64" y="0" width="802" height="39" uuid="1d5c64dd-1fb8-49ba-94da-3ba72ef5e4bf"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MSG Log Report - "+$P{reportDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="1" y="0" width="41" height="20" uuid="42ea3eaa-04c7-4dad-b35a-f4403d7e4fc0"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{requestId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="42" y="0" width="50" height="20" uuid="2f587715-9911-4777-b008-46ac0ab82281"/>
+				<textFieldExpression><![CDATA[$F{requestReceivedDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="92" y="0" width="54" height="20" uuid="eb9b5839-2597-446b-8f42-ef9855ebe5de"/>
+				<textFieldExpression><![CDATA[$F{requestReceivedTime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="145" y="0" width="48" height="20" uuid="d9b4b3ba-c873-4110-9e79-f758dccb84c8"/>
+				<textFieldExpression><![CDATA[$F{module}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="193" y="0" width="74" height="20" uuid="d60d0677-04e6-4b28-a531-212672066cf7"/>
+				<textFieldExpression><![CDATA[$F{loginId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="267" y="0" width="74" height="20" uuid="1ca23560-7b0e-497f-8bfa-f8ddc8c46685"/>
+				<textFieldExpression><![CDATA[$F{login}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="341" y="0" width="74" height="20" uuid="488cdc7d-67c6-44e5-adf0-aabc8949081f"/>
+				<textFieldExpression><![CDATA[$F{gateway}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="415" y="0" width="74" height="20" uuid="263f91db-9489-4eab-9fab-8dc4c4f4993c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sender}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="489" y="0" width="74" height="20" uuid="9de7563f-a1bf-43a5-a216-97123ac2e8f8"/>
+				<textFieldExpression><![CDATA[$F{recipient}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="563" y="0" width="74" height="20" uuid="afb933cc-966f-4fc5-aeec-ce67c9a2fd13"/>
+				<textFieldExpression><![CDATA[$F{content}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="637" y="0" width="58" height="20" uuid="dbc92eaa-7b43-4199-bba9-b5899bedd1e2"/>
+				<textFieldExpression><![CDATA[$F{attachment}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="695" y="0" width="46" height="20" uuid="43e033f6-38f6-4da8-9f65-c4de3e4028a8"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="741" y="0" width="63" height="20" uuid="efe50765-8988-4dc6-8897-fda3fabcb6bb"/>
+				<textFieldExpression><![CDATA[$F{responseCode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="804" y="0" width="62" height="20" uuid="02fbf2ba-3b33-492e-a079-96d10ef25df0"/>
+				<textFieldExpression><![CDATA[$F{responseContent}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="866" y="0" width="56" height="20" uuid="778e832d-abb6-4deb-8066-08a03faf7e58"/>
+				<textFieldExpression><![CDATA[$F{responseTime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="922" y="0" width="75" height="20" uuid="e8aa17eb-9ea6-4fd2-a14f-2eba44c180c0"/>
+				<textFieldExpression><![CDATA[$F{reSendRetryCount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="49" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="234" splitType="Stretch"/>
+	</summary>
+</jasperReport>

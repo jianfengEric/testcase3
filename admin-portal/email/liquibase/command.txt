@@ -1,0 +1,14 @@
+
+在email项目目录下执行
+
+dev
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-dev.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=dev update
+
+sit
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-dev.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=sit update
+
+uat
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-uat.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=uat update
+
+prd
+..\ana-client\liquibase\command\liquibase --defaultsFile=liquibase\filter\db-prd.properties --classpath=..\ana-client\liquibase\command\mariadb-java-client.jar --changeLogFile=liquibase\db.changelog-master.xml --contexts=prd update

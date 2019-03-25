@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-15">
+        <createTable tableName="email_account">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EMAIL_HOST_CODE" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACCOUNT" type="VARCHAR(50)"/>
+            <column name="PASSWORD" type="VARCHAR(20)"/>
+            <column name="PRIORITY" remarks="1 is the highest" type="INT(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEFAULT_SENDER_EMAIL" type="VARCHAR(100)"/>
+            <column name="STATUS" remarks="ACT- active; NACT - not active" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534304550335-63">
+        <addForeignKeyConstraint baseColumnNames="EMAIL_HOST_CODE" baseTableName="email_account"
+                                 constraintName="FKEMAIL_ACCO664133" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT"
+                                 onUpdate="RESTRICT" referencedColumnNames="CODE"
+                                 referencedTableName="email_host" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-17">
+        <createTable tableName="email_attachment">
+            <column name="ID" type="BIGINT(11)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="EMAIL_CONTENT_ID" type="BIGINT(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ATTACHMENT_NAME" remarks="the filename of the attachment" type="VARCHAR(250)"/>
+            <column name="ATTACHMENT_PATH" remarks="the server path of the attachment stored." type="TEXT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Dell (generated)" id="1534304550335-64">
+        <addForeignKeyConstraint baseColumnNames="EMAIL_CONTENT_ID" baseTableName="email_attachment"
+                                 constraintName="FKEMAIL_ATTA418032" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="email_content" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

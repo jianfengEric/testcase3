@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="Dell (generated)" id="1534304550335-19">
+        <createTable remarks="SMTP gateway" tableName="email_host">
+            <column name="CODE" remarks="GML - Gmail; TNG - tng internal smpt/MTA service..... in case more than 1 internal smtp gateway, may use TNG1, TNG2 ...etc" type="VARCHAR(10)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PROVIDER" remarks="provider name. eg. GMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOST1" remarks="default smtp gateway address" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOST2" remarks="alternate address" type="VARCHAR(100)"/>
+            <column name="REQUIRE_AUTH" remarks="boolean" type="DECIMAL(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SECURE_TYPE" remarks="NIL - no secure send; TLS; SSL" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PORT" remarks="25 - non secure port; secure port should be 465 depends on smtp provider setting." type="INT(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRIORITY" remarks="1 is the highest" type="TINYINT(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" remarks="ACT-active; NACT- not active" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL_SIZE_LIMIT" remarks="email size limit to send in Kbytes. 0 is unknown without limit. Reject the email if the size exceed this limit" type="BIGINT(10)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
